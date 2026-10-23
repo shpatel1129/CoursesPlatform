@@ -4,14 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
-  GraduationCap, 
   Menu, 
   X, 
-  Sparkles, 
-  BookOpen, 
+  ChevronRight,
   ShieldCheck, 
-  Search,
-  ArrowRight
+  BookOpen
 } from "lucide-react";
 
 export default function Header() {
@@ -27,129 +24,118 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on navigation
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Exact Soloneur navigation links
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "All Courses", href: "/courses" },
-    { name: "Reviews", href: "/#reviews" },
-    { name: "Why Us", href: "/#why-us" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Courses", href: "/#curriculum" },
+    { name: "Community", href: "/#community" },
+    { name: "Tools", href: "/#tools" },
+    { name: "About", href: "/#about" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0b0f19]/85 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl py-3.5"
+          ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] py-3.5"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          
+          {/* Soloneur Brand Lockup with Electric Cyan Accent */}
           <Link
             href="/"
-            className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg p-1"
+            className="group flex items-center gap-3 focus:outline-none"
+            aria-label="Soloneur"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0369a1] p-[1px] shadow-[0_0_20px_-4px_rgba(6,182,212,0.6)] group-hover:shadow-[0_0_25px_0_rgba(6,182,212,0.8)] transition-all">
+              <div className="w-full h-full bg-[#0a0a0a] rounded-[7px] flex items-center justify-center">
+                <span className="font-display text-sm font-bold text-[#06b6d4]">S</span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
-                Apex<span className="text-indigo-400">Skills</span>
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              </span>
-              <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">
-                Mastery Platform
-              </span>
-            </div>
+
+            <span className="font-display text-xl tracking-tight text-[#f5f5f5] flex items-center leading-none">
+              Soloneur
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "text-white bg-slate-800/80 border border-slate-700/60 shadow-inner"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800/40"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right Action CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/courses"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>Explore Courses</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <Link
-              href="/courses"
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500"
-            >
-              Courses
-            </Link>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#0b0f19]/98 border-b border-slate-800 shadow-2xl backdrop-blur-2xl px-6 py-6 transition-all">
-          <nav className="flex flex-col gap-2">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/80 transition-colors"
+                className="text-sm text-[#a1a1a1] hover:text-[#f5f5f5] transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-slate-800 mt-2 flex flex-col gap-3">
+          </nav>
+
+          {/* Right Action CTA Button (Electric Cyan) */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/#apply"
+              className="inline-flex items-center justify-center gap-2 rounded-md text-sm cursor-pointer font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_0_0_0_rgba(6,182,212,0)] hover:bg-[#38bdf8] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(6,182,212,0.65)] transition-all duration-200 h-9 px-4 py-2"
+            >
+              <span>Register for the webinar</span>
+              <ChevronRight className="w-3.5 h-3.5 -mr-1" />
+            </Link>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <Link
+              href="/#apply"
+              className="text-xs font-semibold px-3 py-1.5 rounded-md bg-[#06b6d4] text-[#0a0a0a]"
+            >
+              Register
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="h-9 w-9 inline-flex items-center justify-center rounded-md border border-white/10 text-[#f5f5f5] hover:border-[#06b6d4]/50 transition-colors"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#0a0a0a]/98 border-b border-[#06b6d4]/20 shadow-2xl backdrop-blur-2xl px-6 py-6 transition-all">
+          <nav className="flex flex-col gap-3">
+            {navLinks.map((link) => (
               <Link
-                href="/courses"
-                className="w-full py-3 rounded-xl text-center text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-2"
+                key={link.name}
+                href={link.href}
+                className="px-3 py-2 rounded-lg text-sm font-medium text-[#a1a1a1] hover:text-[#06b6d4] hover:bg-white/[0.03] transition-colors"
               >
-                <Sparkles className="w-4 h-4 text-amber-300" />
-                <span>Explore All Courses</span>
-                <ArrowRight className="w-4 h-4" />
+                {link.name}
               </Link>
-              <div className="flex items-center justify-center gap-4 text-xs text-slate-400 pt-1">
+            ))}
+
+            <div className="pt-4 border-t border-white/10 mt-2 flex flex-col gap-3">
+              <Link
+                href="/#apply"
+                className="w-full py-3 rounded-md text-center text-sm font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_8px_24px_-8px_rgba(6,182,212,0.65)] flex items-center justify-center gap-2"
+              >
+                <span>Register for the webinar</span>
+              </Link>
+
+              <div className="flex items-center justify-center gap-4 text-[11px] text-[#a1a1a1] pt-2">
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> 30-Day Money Back
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#06b6d4]" /> 72-Hour Refund Policy
                 </span>
                 <span className="flex items-center gap-1">
-                  <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> Lifetime Access
+                  <BookOpen className="w-3.5 h-3.5 text-[#06b6d4]" /> 1-Year Membership
                 </span>
               </div>
             </div>

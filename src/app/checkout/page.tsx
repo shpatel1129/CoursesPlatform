@@ -24,7 +24,7 @@ async function CheckoutContent({ searchParams }: CheckoutPageProps) {
 
 export default async function CheckoutPage(props: CheckoutPageProps) {
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col">
       <Header />
 
       <main className="flex-grow pt-24 pb-20">

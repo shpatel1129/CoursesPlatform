@@ -1,34 +1,40 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0b0f19",
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "ApexSkills | Modern Online Courses & Career Masterclasses",
-    template: "%s | ApexSkills",
+    default: "Soloneur — Build AI-powered income streams of your own.",
+    template: "%s | Soloneur",
   },
-  description: "Accelerate your career with high-converting masterclasses in Digital Marketing, Full-Stack Development, UI/UX Design, AI Automation, and Business Strategy.",
-  keywords: ["online courses", "masterclass", "digital marketing", "full stack web development", "UI UX design", "AI prompt engineering", "business strategy"],
-  authors: [{ name: "ApexSkills Education" }],
+  description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders. Solo, with a system.",
+  keywords: ["soloneur", "online business", "income streams", "ai tools", "digital marketing", "solopreneur india", "first time founders"],
+  authors: [{ name: "Soloneur" }],
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://apexskills.com",
-    title: "ApexSkills | Learn the Skills That Change Your Career",
-    description: "Industry-standard masterclasses taught by top 1% practitioners. Lifetime access, verifiable certificates, and 30-day money-back guarantee.",
-    siteName: "ApexSkills",
+    locale: "en_IN",
+    url: "https://soloneur.in",
+    title: "Soloneur — Build AI-powered income streams of your own.",
+    description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders.",
+    siteName: "Soloneur",
   },
 };
 
@@ -38,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} antialiased scroll-smooth dark`}>
-      <body className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans">
+    <html lang="en-IN" className={`${playfair.variable} ${inter.variable} antialiased scroll-smooth dark`}>
+      <body className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col font-sans selection:bg-[#06b6d4]/30 selection:text-white">
         {children}
       </body>
     </html>

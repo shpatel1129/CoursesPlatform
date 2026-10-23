@@ -72,10 +72,10 @@ export default function RefundPage() {
                 <p className="text-xs text-slate-400">Enroll today with complete peace of mind.</p>
               </div>
               <Link
-                href="/courses"
-                className="px-6 py-3 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors"
+                href="/#apply"
+                className="px-6 py-3 rounded-md text-xs font-semibold text-[#0a0a0a] bg-[#06b6d4] hover:bg-[#38bdf8] transition-colors shadow-[0_0_20px_rgba(6,182,212,0.4)]"
               >
-                Browse All Masterclasses
+                Register for the webinar
               </Link>
             </div>
           </div>
