@@ -23,18 +23,16 @@ import {
 export function SoloneurMetricBar() {
   return (
     <section className="border-y border-white/5 bg-[#0c0c0c]/90 backdrop-blur-sm">
-      <div className="max-w-4xl mx-auto py-6 px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 text-center">
-          <div className="flex items-center">
-            <span className="text-sm text-[#f5f5f5]/85 tracking-wide">4 or 12 course tracks</span>
+      <div className="max-w-4xl mx-auto py-4 sm:py-6 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-center">
+          <div className="w-full sm:w-auto py-1 sm:py-0 px-4 sm:px-6 lg:px-8">
+            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">4 or 12 course tracks</span>
           </div>
-          <div className="flex items-center">
-            <span className="hidden sm:block h-4 w-px bg-[#06b6d4]/40 mx-6 lg:mx-10" aria-hidden="true" />
-            <span className="text-sm text-[#f5f5f5]/85 tracking-wide">2 or 4 AI tools</span>
+          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-4 sm:px-6 lg:px-8">
+            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">2 or 4 AI tools</span>
           </div>
-          <div className="flex items-center">
-            <span className="hidden sm:block h-4 w-px bg-[#06b6d4]/40 mx-6 lg:mx-10" aria-hidden="true" />
-            <span className="text-sm text-[#f5f5f5]/85 tracking-wide">Live trainings + community</span>
+          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-4 sm:px-6 lg:px-8">
+            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">Live trainings + community</span>
           </div>
         </div>
       </div>
@@ -44,21 +42,21 @@ export function SoloneurMetricBar() {
 
 export function SoloneurAboutSection() {
   return (
-    <section id="about" className="py-24 bg-[#0a0a0a] border-t border-white/5 relative">
+    <section id="about" className="py-16 sm:py-24 bg-[#0a0a0a] border-t border-white/5 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl md:text-5xl leading-tight text-center text-[#f5f5f5]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-center text-[#f5f5f5]">
           Why we built this.
         </h2>
 
-        <p className="mt-8 text-lg text-[#a1a1a1] leading-relaxed text-center max-w-3xl mx-auto font-light">
+        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#a1a1a1] leading-relaxed text-center max-w-3xl mx-auto font-light">
           We started Soloneur because we were tired of watching capable people drown in scattered advice and fake gurus — full of ambition, but with no real system to follow. So we built the thing we wished we&apos;d had: a real curriculum, real AI tools, and a room full of people doing the work. We&apos;re not here to sell a dream. We&apos;re here to hand you the map, the tools, and the people that make it real. This is the age of one — where a single person, equipped right, can build what once took a whole company.
         </p>
 
-        <p className="mt-6 text-[#06b6d4] font-display text-center text-lg">
+        <p className="mt-5 sm:mt-6 text-[#06b6d4] font-display text-center text-base sm:text-lg">
           — Tushar &amp; Abhishek
         </p>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
           {/* Tushar Gaur Card */}
           <div className="group block rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] overflow-hidden transition-all hover:border-[#06b6d4]/40 hover:shadow-[0_0_40px_-15px_rgba(6,182,212,0.4)]">
             <div className="aspect-[4/5] overflow-hidden bg-[#0a0a0a] relative">
@@ -69,10 +67,10 @@ export function SoloneurAboutSection() {
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="p-6 flex items-end justify-between gap-4">
+            <div className="p-5 sm:p-6 flex items-end justify-between gap-4">
               <div>
-                <div className="font-display text-2xl text-[#f5f5f5]">Tushar Gaur</div>
-                <div className="text-sm text-[#a1a1a1] mt-1">Founder</div>
+                <div className="font-display text-xl sm:text-2xl text-[#f5f5f5]">Tushar Gaur</div>
+                <div className="text-xs sm:text-sm text-[#a1a1a1] mt-1">Founder</div>
               </div>
               <div className="text-xs text-[#06b6d4] tracking-wide opacity-80 group-hover:opacity-100 transition-opacity">
                 @thetushargaur ↗
@@ -90,10 +88,10 @@ export function SoloneurAboutSection() {
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="p-6 flex items-end justify-between gap-4">
+            <div className="p-5 sm:p-6 flex items-end justify-between gap-4">
               <div>
-                <div className="font-display text-2xl text-[#f5f5f5]">Abhishek Singh</div>
-                <div className="text-sm text-[#a1a1a1] mt-1">Founder</div>
+                <div className="font-display text-xl sm:text-2xl text-[#f5f5f5]">Abhishek Singh</div>
+                <div className="text-xs sm:text-sm text-[#a1a1a1] mt-1">Founder</div>
               </div>
               <div className="text-xs text-[#06b6d4] tracking-wide opacity-80 group-hover:opacity-100 transition-opacity">
                 @abhishekkasanaofficial ↗
@@ -109,43 +107,43 @@ export function SoloneurAboutSection() {
 export function SoloneurWhatYouLearnSection() {
   const pillars = [
     {
-      icon: <Compass className="h-7 w-7 text-[#06b6d4]" />,
+      icon: <Compass className="h-6 w-6 sm:h-7 sm:w-7 text-[#06b6d4]" />,
       title: "Find your niche & build what's yours",
       description: "Get clarity on what you actually want to build, tune out everyone else's opinions, and learn to create digital products that are genuinely your own.",
     },
     {
-      icon: <Users className="h-7 w-7 text-[#06b6d4]" />,
+      icon: <Users className="h-6 w-6 sm:h-7 sm:w-7 text-[#06b6d4]" />,
       title: "Build your brand & attract an audience",
       description: "Grow a personal brand, pull in an audience that trusts you, and turn attention into leads.",
     },
     {
-      icon: <Sparkles className="h-7 w-7 text-[#06b6d4]" />,
+      icon: <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 text-[#06b6d4]" />,
       title: "Use AI as your unfair advantage",
       description: "Wield AI tools the right way to move faster, build more, and outpace people with far bigger teams.",
     },
     {
-      icon: <TrendingUp className="h-7 w-7 text-[#06b6d4]" />,
+      icon: <TrendingUp className="h-6 w-6 sm:h-7 sm:w-7 text-[#06b6d4]" />,
       title: "Sell, close, and scale",
       description: "The skills to turn interest into customers — and a small start into something that grows.",
     },
   ];
 
   return (
-    <section className="py-24 bg-[#0c0c0c]/70 border-t border-white/5">
+    <section className="py-16 sm:py-24 bg-[#0c0c0c]/70 border-t border-white/5">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl md:text-5xl text-center max-w-3xl mx-auto leading-tight text-[#f5f5f5]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-center max-w-3xl mx-auto leading-tight text-[#f5f5f5]">
           What you&apos;ll learn to do.
         </h2>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {pillars.map((item, index) => (
             <div 
               key={index} 
-              className="h-full p-8 rounded-lg border border-white/5 bg-[#111111]/92 backdrop-blur-sm hover:border-[#06b6d4]/30 transition-colors"
+              className="h-full p-5 sm:p-8 rounded-xl border border-white/5 bg-[#111111]/92 backdrop-blur-sm hover:border-[#06b6d4]/30 transition-colors"
             >
               {item.icon}
-              <h3 className="mt-6 font-display text-xl md:text-2xl text-[#f5f5f5]">{item.title}</h3>
-              <p className="mt-4 text-[#a1a1a1] leading-relaxed font-light">{item.description}</p>
+              <h3 className="mt-4 sm:mt-6 font-display text-lg sm:text-xl md:text-2xl text-[#f5f5f5]">{item.title}</h3>
+              <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-[#a1a1a1] leading-relaxed font-light">{item.description}</p>
             </div>
           ))}
         </div>
@@ -405,24 +403,24 @@ export function SoloneurWeeklyLiveSection() {
 
 export function SoloneurCommunitySection() {
   return (
-    <section id="community" className="py-24 bg-[#0a0a0a] border-t border-white/5">
+    <section id="community" className="py-16 sm:py-24 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl md:text-5xl leading-tight text-[#f5f5f5]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#f5f5f5] break-words">
           Solo doesn&apos;t mean <span className="text-[#06b6d4]">alone</span>.
         </h2>
 
-        <p className="mt-8 text-lg text-[#a1a1a1] leading-relaxed font-light">
+        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#a1a1a1] leading-relaxed font-light">
           The hardest part of building something yourself is doing it in silence. Inside Soloneur you&apos;re surrounded by people at every stage — asking questions, sharing wins, and keeping each other moving. The courses teach you. The community keeps you going.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-8 sm:mt-10">
           <a 
             href="https://chat.whatsapp.com/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="inline-flex items-center justify-center gap-2.5 rounded-md font-medium border border-[#06b6d4]/40 text-[#f5f5f5] hover:border-[#06b6d4] hover:text-[#06b6d4] bg-transparent hover:bg-[#06b6d4]/[0.05] transition-colors h-11 px-8 text-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-md font-medium border border-[#06b6d4]/40 text-[#f5f5f5] hover:border-[#06b6d4] hover:text-[#06b6d4] bg-transparent hover:bg-[#06b6d4]/[0.05] transition-colors h-11 px-8 text-sm"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
             <span>Join the community</span>
           </a>
         </div>
@@ -462,9 +460,9 @@ export function SoloneurFAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-[#0a0a0a] border-t border-white/5">
+    <section id="faq" className="py-16 sm:py-24 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl md:text-5xl font-bold text-[#f5f5f5] tracking-tight mb-14 text-center">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#f5f5f5] tracking-tight mb-10 sm:mb-14 text-center break-words">
           Frequently asked questions.
         </h2>
 
@@ -476,20 +474,20 @@ export function SoloneurFAQSection() {
                 <button
                   type="button"
                   onClick={() => setOpenId(isOpen ? null : idx)}
-                  className="w-full py-6 flex items-center justify-between gap-4 text-left cursor-pointer"
+                  className="w-full py-4 sm:py-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-left cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className={`text-base sm:text-lg font-medium transition-colors ${
+                  <span className={`text-sm sm:text-base md:text-lg font-medium transition-colors break-words ${
                     isOpen ? "text-[#06b6d4]" : "text-[#f5f5f5]"
                   }`}>
                     {faq.q}
                   </span>
-                  <ChevronDown className={`w-5 h-5 text-[#a1a1a1] transition-transform duration-200 flex-shrink-0 ${
+                  <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-[#a1a1a1] transition-transform duration-200 flex-shrink-0 mt-0.5 sm:mt-0 ${
                     isOpen ? "rotate-180 text-[#06b6d4]" : ""
                   }`} />
                 </button>
                 {isOpen && (
-                  <div className="pb-6 text-sm sm:text-base text-[#a1a1a1] leading-relaxed font-light animate-fadeIn">
+                  <div className="pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-[#a1a1a1] leading-relaxed font-light animate-fadeIn">
                     <p>{faq.a}</p>
                   </div>
                 )}

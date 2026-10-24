@@ -28,11 +28,10 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  // Exact Soloneur navigation links
+  // Navigation links
   const navLinks = [
-    { name: "Courses", href: "/#curriculum" },
+    { name: "Mentorship", href: "/#curriculum" },
     { name: "Community", href: "/#community" },
-    { name: "Tools", href: "/#tools" },
     { name: "About", href: "/#about" },
   ];
 
@@ -47,25 +46,26 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Soloneur Brand Lockup with Electric Cyan Accent */}
+            {/* SkyAI Automation Brand Lockup with Electric Cyan Accent */}
           <Link
             href="/"
-            className="group flex items-center gap-3 focus:outline-none"
-            aria-label="Soloneur"
+            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none flex-shrink-0"
+            aria-label="SkyAI Automation"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0369a1] p-[1px] shadow-[0_0_20px_-4px_rgba(6,182,212,0.6)] group-hover:shadow-[0_0_25px_0_rgba(6,182,212,0.8)] transition-all">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0369a1] p-[1px] shadow-[0_0_20px_-4px_rgba(6,182,212,0.6)] group-hover:shadow-[0_0_25px_0_rgba(6,182,212,0.8)] transition-all flex-shrink-0">
               <div className="w-full h-full bg-[#0a0a0a] rounded-[7px] flex items-center justify-center">
-                <span className="font-display text-sm font-bold text-[#06b6d4]">S</span>
+                <span className="font-display text-xs sm:text-sm font-bold text-[#06b6d4]">S</span>
               </div>
             </div>
 
-            <span className="font-display text-xl tracking-tight text-[#f5f5f5] flex items-center leading-none">
-              Soloneur
+            <span className="font-display text-lg sm:text-xl tracking-tight text-[#f5f5f5] flex items-center leading-none">
+              SkyAI Automation
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -92,13 +92,14 @@ export default function Header() {
           <div className="flex md:hidden items-center gap-2">
             <Link
               href="/#apply"
-              className="text-xs font-semibold px-3 py-1.5 rounded-md bg-[#06b6d4] text-[#0a0a0a]"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-[#06b6d4] text-[#0a0a0a] transition-all"
             >
               Register
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="h-9 w-9 inline-flex items-center justify-center rounded-md border border-white/10 text-[#f5f5f5] hover:border-[#06b6d4]/50 transition-colors"
+              className="h-9 w-9 inline-flex items-center justify-center rounded-md border border-white/10 text-[#f5f5f5] hover:border-[#06b6d4]/50 transition-colors cursor-pointer"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -110,13 +111,14 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#0a0a0a]/98 border-b border-[#06b6d4]/20 shadow-2xl backdrop-blur-2xl px-6 py-6 transition-all">
-          <nav className="flex flex-col gap-3">
+        <div className="md:hidden absolute inset-x-0 top-full bg-[#0a0a0a]/98 border-b border-[#06b6d4]/20 shadow-2xl backdrop-blur-2xl px-5 sm:px-6 py-6 transition-all max-h-[calc(100vh-65px)] overflow-y-auto">
+          <nav className="flex flex-col gap-2 sm:gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-[#a1a1a1] hover:text-[#06b6d4] hover:bg-white/[0.03] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2.5 rounded-lg text-sm font-medium text-[#a1a1a1] hover:text-[#06b6d4] hover:bg-white/[0.04] transition-colors"
               >
                 {link.name}
               </Link>
@@ -125,12 +127,13 @@ export default function Header() {
             <div className="pt-4 border-t border-white/10 mt-2 flex flex-col gap-3">
               <Link
                 href="/#apply"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3 rounded-md text-center text-sm font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_8px_24px_-8px_rgba(6,182,212,0.65)] flex items-center justify-center gap-2"
               >
                 <span>Register for the webinar</span>
               </Link>
 
-              <div className="flex items-center justify-center gap-4 text-[11px] text-[#a1a1a1] pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] text-[#a1a1a1] pt-2">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#06b6d4]" /> 72-Hour Refund Policy
                 </span>

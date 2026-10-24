@@ -9,9 +9,6 @@ import {
   SoloneurMetricBar, 
   SoloneurAboutSection, 
   SoloneurWhatYouLearnSection, 
-  SoloneurToolsSection, 
-  SoloneurTierComparisonSection, 
-  SoloneurWeeklyLiveSection, 
   SoloneurCommunitySection, 
   SoloneurFAQSection 
 } from "@/components/SoloneurSections";
@@ -19,11 +16,11 @@ import RegisterWebinarSection from "@/components/RegisterWebinarSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Soloneur — Build AI-powered income streams of your own.",
+  title: "SkyAI Automation — Build AI-powered income streams of your own.",
   description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders. Solo, with a system.",
   openGraph: {
-    title: "Soloneur — Build AI-powered income streams of your own.",
-    description: "Soloneur gives you the skills, the AI tools, and the system to start and grow an online business — solo, from zero.",
+    title: "SkyAI Automation — Build AI-powered income streams of your own.",
+    description: "SkyAI Automation gives you the skills, the AI tools, and the system to start and grow an online business — solo, from zero.",
     type: "website",
   },
 };
@@ -56,16 +53,7 @@ export default function HomePage() {
         {/* 8. What You'll Learn to Do (4 Pillars) */}
         <SoloneurWhatYouLearnSection />
 
-        {/* 9. Tools That Think With You (Council of Mentors, Vyas, Content Compass, Objection Crusher) */}
-        <SoloneurToolsSection />
-
-        {/* 10. What's in Each Tier (Core vs Elite) */}
-        <SoloneurTierComparisonSection />
-
-        {/* 11. It's Live. Every Week. (Solothon & Solignment) */}
-        <SoloneurWeeklyLiveSection />
-
-        {/* 12. Solo Doesn't Mean Alone (Community) */}
+        {/* 9. Solo Doesn't Mean Alone (Community) */}
         <SoloneurCommunitySection />
 
         {/* 13. Frequently Asked Questions */}

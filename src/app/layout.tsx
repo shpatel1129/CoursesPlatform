@@ -22,19 +22,19 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Soloneur — Build AI-powered income streams of your own.",
-    template: "%s | Soloneur",
+    default: "SkyAI Automation — Build AI-powered income streams of your own.",
+    template: "%s | SkyAI Automation",
   },
   description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders. Solo, with a system.",
-  keywords: ["soloneur", "online business", "income streams", "ai tools", "digital marketing", "solopreneur india", "first time founders"],
-  authors: [{ name: "Soloneur" }],
+  keywords: ["skyai automation", "online business", "income streams", "ai tools", "digital marketing", "solopreneur india", "first time founders"],
+  authors: [{ name: "SkyAI Automation" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://soloneur.in",
-    title: "Soloneur — Build AI-powered income streams of your own.",
+    title: "SkyAI Automation — Build AI-powered income streams of your own.",
     description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders.",
-    siteName: "Soloneur",
+    siteName: "SkyAI Automation",
   },
 };
 

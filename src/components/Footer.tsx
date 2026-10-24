@@ -4,45 +4,12 @@ import { ShieldCheck, Lock, Award, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070707] text-[#a1a1a1] border-t border-white/5 pt-16 pb-12">
+    <footer className="bg-[#070707] text-[#a1a1a1] border-t border-white/5 pt-12 sm:pt-16 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Top Trust Guarantee Banner */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12 mb-12 border-b border-white/5">
-          <div className="flex items-center gap-4 p-5 rounded-xl bg-[#0a0a0a] border border-white/5">
-            <div className="w-11 h-11 rounded-lg bg-[#06b6d4]/10 border border-[#06b6d4]/25 flex items-center justify-center flex-shrink-0 text-[#06b6d4]">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#f5f5f5]">72-Hour Refund Policy</h4>
-              <p className="text-xs text-[#a1a1a1] mt-0.5 font-light">Available within 72 hours before live session attendance</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 p-5 rounded-xl bg-[#0a0a0a] border border-white/5">
-            <div className="w-11 h-11 rounded-lg bg-[#06b6d4]/10 border border-[#06b6d4]/25 flex items-center justify-center flex-shrink-0 text-[#06b6d4]">
-              <Lock className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#f5f5f5]">256-Bit Encrypted Checkout</h4>
-              <p className="text-xs text-[#a1a1a1] mt-0.5 font-light">Secure bank-grade payment encryption protocols</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 p-5 rounded-xl bg-[#0a0a0a] border border-white/5">
-            <div className="w-11 h-11 rounded-lg bg-[#06b6d4]/10 border border-[#06b6d4]/25 flex items-center justify-center flex-shrink-0 text-[#06b6d4]">
-              <Award className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#f5f5f5]">1-Year Membership Access</h4>
-              <p className="text-xs text-[#a1a1a1] mt-0.5 font-light">Full curriculum, built-in AI tools, and weekly sprints</p>
-            </div>
-          </div>
-        </div>
 
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
-          
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12">
+
           {/* Brand Column */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
@@ -52,7 +19,7 @@ export default function Footer() {
                 </div>
               </div>
               <span className="font-display text-xl font-bold tracking-tight text-[#f5f5f5] leading-none">
-                Soloneur
+                SkyAI Automation
               </span>
             </Link>
 
@@ -63,7 +30,7 @@ export default function Footer() {
             <div className="pt-2">
               <span className="text-xs text-[#a1a1a1] font-medium bg-[#0a0a0a] px-3 py-1.5 rounded-md border border-white/10 inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse" />
-                Soloatlas Technologies Private Limited
+                SkyAI Automation Private Limited
               </span>
             </div>
           </div>
@@ -73,16 +40,13 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f5f5]">Navigation</h4>
             <ul className="flex flex-col gap-2.5 text-xs">
               <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">Courses</Link>
+                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">Mentorship</Link>
               </li>
               <li>
                 <Link href="/#workshop" className="hover:text-[#06b6d4] transition-colors">Live Workshop</Link>
               </li>
               <li>
                 <Link href="/#pricing" className="hover:text-[#06b6d4] transition-colors">Tiers</Link>
-              </li>
-              <li>
-                <Link href="/#tools" className="hover:text-[#06b6d4] transition-colors">AI Tools</Link>
               </li>
               <li>
                 <Link href="/#community" className="hover:text-[#06b6d4] transition-colors">Community</Link>

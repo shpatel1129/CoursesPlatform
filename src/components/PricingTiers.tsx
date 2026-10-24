@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Crown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 
 interface SlideData {
   title: string;
@@ -13,349 +13,217 @@ interface SlideData {
 }
 
 export default function PricingTiers() {
-  const [eliteSlide, setEliteSlide] = useState(0);
-  const [coreSlide, setCoreSlide] = useState(0);
-  const [isEliteHovered, setIsEliteHovered] = useState(false);
-  const [isCoreHovered, setIsCoreHovered] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const eliteSlides: SlideData[] = [
+  const slides: SlideData[] = [
     {
       title: "Curriculum Overview",
-      desc: "All 12 course tracks spanning from foundation to advanced scale.",
+      desc: "Comprehensive course tracks spanning from foundation to advanced scale.",
       image: "/images/tiers/elite_curriculum.jpg",
-      tag: "12 Tracks Included",
+      tag: "Full Curriculum",
     },
     {
       title: "Weekly Live Sprints",
-      desc: "Two live interactive sessions per week with founders.",
+      desc: "Two live interactive sessions per week with founders and mentor team.",
       image: "/images/tiers/elite_sprints.jpg",
-      tag: "Solothon & Solignment",
+      tag: "Live Sprints & Solothon",
     },
     {
       title: "Complete AI Suite",
       desc: "Council of Mentors, Vyas, Content Compass & Objection Crusher.",
       image: "/images/tiers/elite_ai_tools.jpg",
-      tag: "4 AI Power Tools",
+      tag: "Proprietary AI Suite",
     },
   ];
 
-  const coreSlides: SlideData[] = [
-    {
-      title: "Core Tracks",
-      desc: "Four foundational tracks covering niche clarity and system creation.",
-      image: "/images/tiers/core_tracks.jpg",
-      tag: "4 Core Modules",
-    },
-    {
-      title: "Weekly Live Sprints",
-      desc: "Two live interactive training sessions each week.",
-      image: "/images/tiers/core_sprints.jpg",
-      tag: "Weekly Coaching",
-    },
-    {
-      title: "Foundation AI Tools",
-      desc: "Full access to Council of Mentors and Vyas scriptwriter.",
-      image: "/images/tiers/core_tools.jpg",
-      tag: "2 AI Tools",
-    },
-  ];
-
-  // Auto-slide for Elite tier (every 3.8s, pauses on hover)
+  // Auto-slide every 3.8s, pauses when user hovers
   useEffect(() => {
-    if (isEliteHovered) return;
+    if (isHovered) return;
     const interval = setInterval(() => {
-      setEliteSlide((prev) => (prev + 1) % eliteSlides.length);
+      setSlide((prev) => (prev + 1) % slides.length);
     }, 3800);
     return () => clearInterval(interval);
-  }, [isEliteHovered, eliteSlides.length]);
+  }, [isHovered, slides.length]);
 
-  // Auto-slide for Core tier (every 4.2s, pauses on hover, slightly staggered)
-  useEffect(() => {
-    if (isCoreHovered) return;
-    const interval = setInterval(() => {
-      setCoreSlide((prev) => (prev + 1) % coreSlides.length);
-    }, 4200);
-    return () => clearInterval(interval);
-  }, [isCoreHovered, coreSlides.length]);
-
-  const handlePrevElite = () => {
-    setEliteSlide((prev) => (prev === 0 ? eliteSlides.length - 1 : prev - 1));
+  const handlePrev = () => {
+    setSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
-  const handleNextElite = () => {
-    setEliteSlide((prev) => (prev === eliteSlides.length - 1 ? 0 : prev + 1));
-  };
-
-  const handlePrevCore = () => {
-    setCoreSlide((prev) => (prev === 0 ? coreSlides.length - 1 : prev - 1));
-  };
-
-  const handleNextCore = () => {
-    setCoreSlide((prev) => (prev === coreSlides.length - 1 ? 0 : prev + 1));
+  const handleNext = () => {
+    setSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <section id="pricing" className="py-24 bg-[#0c0c0c]/70 relative border-t border-white/5 overflow-hidden">
+    <section id="pricing" className="py-16 sm:py-24 bg-[#0c0c0c]/70 relative border-t border-white/5 overflow-hidden">
       {/* Background ambient lighting */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#06b6d4]/[0.05] rounded-full blur-[160px] pointer-events-none" 
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-[#06b6d4]/[0.05] rounded-full blur-[160px] pointer-events-none" 
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="font-display text-3xl md:text-5xl text-center leading-tight text-[#f5f5f5]">
-            Two tiers. Pick your <span className="text-[#06b6d4]">depth</span>.
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/[0.06] px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#06b6d4] mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Flagship Mentorship</span>
+          </div>
+
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-center leading-tight text-[#f5f5f5] break-words">
+            Sky Agentic AI <span className="text-[#06b6d4]">Mentorship</span>
           </h2>
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-[#a1a1a1] max-w-xl mx-auto font-light leading-relaxed">
+            A structured 60-day roadmap to build practical AI systems and acquire high-paying clients.
+          </p>
         </div>
 
-        {/* 2 Tier Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          
-          {/* Card 1: ELITE */}
-          <div className="h-full relative rounded-xl bg-[#0a0a0a]/96 text-center backdrop-blur-sm p-8 md:p-10 border border-[#06b6d4]/40 shadow-[0_0_60px_-20px_rgba(6,182,212,0.3)] flex flex-col justify-between">
-            <div>
-              <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0f172a] p-[1.5px] shadow-[0_0_25px_rgba(6,182,212,0.4)]">
-                  <div className="w-full h-full bg-[#0a0a0a] rounded-[14px] flex items-center justify-center">
-                    <Crown className="w-7 h-7 text-[#06b6d4]" />
-                  </div>
-                </div>
-              </div>
+        {/* Single Featured Card (from user image) */}
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[#0a0a0a]/95 text-center backdrop-blur-xl p-5 sm:p-10 md:p-16 border border-[#06b6d4]/40 shadow-[0_0_80px_-20px_rgba(6,182,212,0.35)] overflow-hidden">
+          {/* Subtle interior glow */}
+          <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#06b6d4]/10 via-[#06b6d4]/[0.02] to-transparent pointer-events-none" />
 
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-semibold text-[#06b6d4]">
-                Soloneur Elite Membership
-              </div>
-
-              <p className="mt-4 text-sm text-[#a1a1a1] leading-relaxed">
-                All 12 course tracks · 2 live sessions a week · 4 AI tools · community
-              </p>
+          <div className="relative z-10 flex flex-col items-center">
+            {/* INTRODUCING */}
+            <div className="text-[11px] sm:text-sm uppercase tracking-[0.3em] sm:tracking-[0.35em] font-semibold text-[#06b6d4] mb-3 sm:mb-4">
+              INTRODUCING
             </div>
-          </div>
 
-          {/* Card 2: CORE */}
-          <div className="h-full relative rounded-xl bg-[#0a0a0a]/96 text-center backdrop-blur-sm p-8 md:p-10 border border-white/10 flex flex-col justify-between">
-            <div>
-              <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-300 via-slate-400 to-slate-700 p-[1.5px] shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                  <div className="w-full h-full bg-[#0a0a0a] rounded-[14px] flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-slate-300" />
-                  </div>
-                </div>
-              </div>
+            {/* SKY AGENTIC AI */}
+            <h3 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#f5f5f5] tracking-tight leading-none break-words">
+              SKY
+            </h3>
+            <h4 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#f5f5f5] tracking-tight leading-tight mt-1 break-words">
+              AGENTIC AI
+            </h4>
 
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-semibold text-[#a1a1a1]">
-                Soloneur Core Membership
-              </div>
-
-              <p className="mt-4 text-sm text-[#a1a1a1] leading-relaxed">
-                4 course tracks · 2 live sessions a week · 2 AI tools · community
-              </p>
+            {/* MENTORSHIP PROGRAM */}
+            <div className="text-xs sm:text-base md:text-lg uppercase tracking-[0.2em] sm:tracking-[0.28em] font-bold text-[#06b6d4] mt-2 sm:mt-3">
+              MENTORSHIP PROGRAM
             </div>
-          </div>
 
+            {/* Description */}
+            <p className="mt-5 sm:mt-8 text-xs sm:text-base text-[#d1d5db] leading-relaxed max-w-xl mx-auto font-light">
+              A 60-day learning journey to build practical AI skills, create useful solutions, and learn how to offer AI services to businesses.
+            </p>
+
+            {/* 60 DAYS • 8 WEEKS Badge */}
+            <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/30 text-[#06b6d4] font-semibold text-xs sm:text-sm tracking-wider uppercase">
+              <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#06b6d4]" />
+              <span>60 DAYS • 8 WEEKS</span>
+            </div>
+
+          </div>
         </div>
 
-        {/* Pricing revealed note banner */}
-        <div className="mt-12 text-center">
-          <p className="font-display text-2xl md:text-3xl leading-snug text-[#f5f5f5]">
+        {/* Pricing revealed note banner & Register CTA */}
+        <div className="mt-10 sm:mt-12 text-center">
+          <p className="font-display text-xl sm:text-2xl md:text-3xl leading-snug text-[#f5f5f5]">
             Pricing revealed <span className="text-[#06b6d4]">live</span> in the webinar.
           </p>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-5 sm:mt-6 flex justify-center">
             <Link
               href="#apply"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer rounded-md font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_0_0_0_rgba(6,182,212,0)] hover:bg-[#38bdf8] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(6,182,212,0.65)] transition-all duration-200 h-13 px-10 text-base"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-normal sm:whitespace-nowrap cursor-pointer rounded-md font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_0_0_0_rgba(6,182,212,0)] hover:bg-[#38bdf8] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(6,182,212,0.65)] transition-all duration-200 h-12 sm:h-13 px-6 sm:px-10 text-sm sm:text-base text-center"
             >
               <span>Register for the webinar</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 flex-shrink-0" />
             </Link>
           </div>
         </div>
 
-        {/* Slide Previews Section with Auto-Slide Images */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          
-          {/* ELITE SLIDER */}
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#06b6d4] flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-ping" />
-                ELITE
-              </span>
-              <span className="text-[10px] font-mono text-[#a1a1a1]/70">{eliteSlide + 1} / {eliteSlides.length}</span>
+        {/* Program Preview Auto-Slide Carousel */}
+        <div className="mt-12 sm:mt-14">
+          <div className="mb-3 flex items-center justify-between">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#06b6d4] flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-ping" />
+              PROGRAM PREVIEW
+            </span>
+            <span className="text-[10px] font-mono text-[#a1a1a1]/70">{slide + 1} / {slides.length}</span>
+          </div>
+
+          <div 
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="group relative w-full overflow-hidden rounded-xl border border-[#06b6d4]/30 bg-[#0a0a0a] aspect-[16/10] sm:aspect-[16/9] shadow-[0_0_60px_-25px_rgba(6,182,212,0.35)]"
+          >
+            {/* Slide Image with smooth cross-fade animation */}
+            <div key={slide} className="absolute inset-0 transition-opacity duration-700 ease-in-out">
+              <Image
+                src={slides[slide].image}
+                alt={slides[slide].title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 768px"
+                className="object-cover object-center transition-all duration-700 group-hover:scale-[1.02]"
+                priority
+              />
+              {/* Subtle gradient vignette to blend with dark luxury styling */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent pointer-events-none" />
             </div>
 
-            <div 
-              onMouseEnter={() => setIsEliteHovered(true)}
-              onMouseLeave={() => setIsEliteHovered(false)}
-              className="group relative w-full overflow-hidden rounded-xl border border-[#06b6d4]/30 bg-[#0a0a0a] aspect-[16/9] shadow-[0_0_60px_-25px_rgba(6,182,212,0.35)]"
+            {/* Top Floating Badge */}
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+              <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-[#0a0a0a]/90 backdrop-blur-md text-[#06b6d4] border border-[#06b6d4]/40 shadow-lg">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
+                {slides[slide].tag}
+              </span>
+            </div>
+
+            {/* Prev / Next Arrows */}
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous slide"
+              className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer shadow-lg"
             >
-              {/* Slide Image with smooth cross-fade animation */}
-              <div key={eliteSlide} className="absolute inset-0 transition-opacity duration-700 ease-in-out">
-                <Image
-                  src={eliteSlides[eliteSlide].image}
-                  alt={eliteSlides[eliteSlide].title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center transition-all duration-700 group-hover:scale-[1.02]"
-                  priority
-                />
-                {/* Subtle gradient vignette to blend with dark luxury styling */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent pointer-events-none" />
-              </div>
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
 
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-[#0a0a0a]/90 backdrop-blur-md text-[#06b6d4] border border-[#06b6d4]/40 shadow-lg">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
-                  {eliteSlides[eliteSlide].tag}
-                </span>
-              </div>
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next slide"
+              className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer shadow-lg"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
 
-              {/* Prev / Next Arrows */}
-              <button
-                type="button"
-                onClick={handlePrevElite}
-                aria-label="Previous Elite slide"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
+            {/* Bottom Info Bar & Pagination Dots */}
+            <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-6 z-10 flex flex-col justify-end bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent">
+              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-2 sm:gap-4">
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-display text-base sm:text-xl font-bold text-[#f5f5f5] drop-shadow-md truncate">
+                    {slides[slide].title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#a1a1a1] mt-0.5 line-clamp-1 font-light drop-shadow">
+                    {slides[slide].desc}
+                  </p>
+                </div>
 
-              <button
-                type="button"
-                onClick={handleNextElite}
-                aria-label="Next Elite slide"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-
-              {/* Bottom Info Bar & Pagination Dots */}
-              <div className="absolute bottom-0 inset-x-0 p-5 z-10 flex flex-col justify-end bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent">
-                <div className="flex items-end justify-between gap-4">
-                  <div>
-                    <h4 className="font-display text-lg sm:text-xl font-bold text-[#f5f5f5] drop-shadow-md">
-                      {eliteSlides[eliteSlide].title}
-                    </h4>
-                    <p className="text-xs text-[#a1a1a1] mt-0.5 line-clamp-1 font-light drop-shadow">
-                      {eliteSlides[eliteSlide].desc}
-                    </p>
-                  </div>
-
-                  {/* Pagination Dots */}
-                  <div className="flex gap-1.5 items-center flex-shrink-0">
-                    {eliteSlides.map((_, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setEliteSlide(i)}
-                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                          eliteSlide === i ? "w-6 bg-[#06b6d4]" : "w-2 bg-white/40 hover:bg-white/70"
-                        }`}
-                        aria-label={`Go to slide ${i + 1}`}
-                      />
-                    ))}
-                  </div>
+                {/* Pagination Dots */}
+                <div className="flex gap-1.5 items-center flex-shrink-0 self-end sm:self-auto">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setSlide(i)}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        slide === i ? "w-5 sm:w-6 bg-[#06b6d4]" : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
+                      }`}
+                      aria-label={`Go to slide ${i + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-
-          {/* CORE SLIDER */}
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-slate-400 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-slate-400 animate-ping" />
-                CORE
-              </span>
-              <span className="text-[10px] font-mono text-[#a1a1a1]/70">{coreSlide + 1} / {coreSlides.length}</span>
-            </div>
-
-            <div 
-              onMouseEnter={() => setIsCoreHovered(true)}
-              onMouseLeave={() => setIsCoreHovered(false)}
-              className="group relative w-full overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] aspect-[16/9] shadow-[0_0_60px_-25px_rgba(255,255,255,0.08)]"
-            >
-              {/* Slide Image with smooth cross-fade animation */}
-              <div key={coreSlide} className="absolute inset-0 transition-opacity duration-700 ease-in-out">
-                <Image
-                  src={coreSlides[coreSlide].image}
-                  alt={coreSlides[coreSlide].title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center transition-all duration-700 group-hover:scale-[1.02]"
-                />
-                {/* Subtle gradient vignette to blend with dark luxury styling */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Top Floating Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-[#0a0a0a]/90 backdrop-blur-md text-slate-300 border border-white/20 shadow-lg">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                  {coreSlides[coreSlide].tag}
-                </span>
-              </div>
-
-              {/* Prev / Next Arrows */}
-              <button
-                type="button"
-                onClick={handlePrevCore}
-                aria-label="Previous Core slide"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0a0a0a]/80 hover:bg-white text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-white flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={handleNextCore}
-                aria-label="Next Core slide"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#0a0a0a]/80 hover:bg-white text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-white flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-
-              {/* Bottom Info Bar & Pagination Dots */}
-              <div className="absolute bottom-0 inset-x-0 p-5 z-10 flex flex-col justify-end bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent">
-                <div className="flex items-end justify-between gap-4">
-                  <div>
-                    <h4 className="font-display text-lg sm:text-xl font-bold text-[#f5f5f5] drop-shadow-md">
-                      {coreSlides[coreSlide].title}
-                    </h4>
-                    <p className="text-xs text-[#a1a1a1] mt-0.5 line-clamp-1 font-light drop-shadow">
-                      {coreSlides[coreSlide].desc}
-                    </p>
-                  </div>
-
-                  {/* Pagination Dots */}
-                  <div className="flex gap-1.5 items-center flex-shrink-0">
-                    {coreSlides.map((_, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setCoreSlide(i)}
-                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                          coreSlide === i ? "w-6 bg-[#06b6d4]" : "w-2 bg-white/40 hover:bg-white/70"
-                        }`}
-                        aria-label={`Go to slide ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         {/* Disclaimer */}
-        <p className="mt-8 text-center italic text-[#a1a1a1] leading-relaxed text-xs sm:text-sm">
-          Soloneur provides education and tools. Results depend on your own effort and vary from person to person — we don&apos;t promise any specific income or outcome.
+        <p className="mt-6 sm:mt-8 text-center italic text-[#a1a1a1] leading-relaxed text-xs sm:text-sm px-2">
+          SkyAI Automation provides education and tools. Results depend on your own effort and vary from person to person — we don&apos;t promise any specific income or outcome.
         </p>
 
       </div>

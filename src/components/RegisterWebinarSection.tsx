@@ -65,37 +65,37 @@ export default function RegisterWebinarSection() {
   };
 
   return (
-    <section id="apply" className="py-24 relative overflow-hidden bg-[#0a0a0a] border-t border-white/5 scroll-mt-20">
+    <section id="apply" className="py-16 sm:py-24 relative overflow-hidden bg-[#0a0a0a] border-t border-white/5 scroll-mt-20">
       {/* Background ambient lighting & floating cyan embers */}
       <AmbientBackground variant="section" intensity="subtle" />
 
       {/* Electric Cyan radial glow */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#06b6d4]/[0.08] rounded-full blur-[160px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[500px] bg-[#06b6d4]/[0.08] rounded-full blur-[160px] pointer-events-none"
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header matching exact user image */}
-        <div className="text-center mb-12">
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#e0f2fe] tracking-tight">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-[#e0f2fe] tracking-tight break-words">
             Start building.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#a1a1a1] max-w-xl mx-auto font-light">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-[#a1a1a1] max-w-xl mx-auto font-light">
             Tell us a little about yourself. We&apos;ll guide you in from there.
           </p>
         </div>
 
         {/* Form Container Card */}
-        <div className="max-w-2xl mx-auto rounded-2xl bg-[#0c0c0c]/95 border border-white/10 p-6 sm:p-10 shadow-[0_0_60px_-20px_rgba(6,182,212,0.25)] backdrop-blur-xl">
+        <div className="max-w-2xl mx-auto rounded-2xl bg-[#0c0c0c]/95 border border-white/10 p-5 sm:p-8 md:p-10 shadow-[0_0_60px_-20px_rgba(6,182,212,0.25)] backdrop-blur-xl">
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               
               {/* Row 1: Full name & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     Full name
                   </label>
                   <input
@@ -105,12 +105,12 @@ export default function RegisterWebinarSection() {
                     placeholder="Your name"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     Email
                   </label>
                   <input
@@ -120,15 +120,15 @@ export default function RegisterWebinarSection() {
                     placeholder="you@example.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 2: WhatsApp number & Calling number (optional) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     WhatsApp number
                   </label>
                   <input
@@ -138,12 +138,12 @@ export default function RegisterWebinarSection() {
                     placeholder="+91 9xxxxxxxxx"
                     value={formData.whatsapp}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     Calling number <span className="text-[#a1a1a1]/60 font-normal">(optional)</span>
                   </label>
                   <input
@@ -152,15 +152,15 @@ export default function RegisterWebinarSection() {
                     placeholder="+91 9xxxxxxxxx"
                     value={formData.callingNumber}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 3: Age & Profession */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     Age
                   </label>
                   <input
@@ -170,19 +170,19 @@ export default function RegisterWebinarSection() {
                     max="99"
                     value={formData.age}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] placeholder-[#a1a1a1]/40 focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#f5f5f5] mb-2">
+                  <label className="block text-xs font-medium text-[#f5f5f5] mb-1.5 sm:mb-2">
                     Profession
                   </label>
                   <select
                     name="profession"
                     value={formData.profession}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-sm text-[#f5f5f5] focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#0a0a0a] border border-white/10 text-base sm:text-sm text-[#f5f5f5] focus:outline-none focus:border-[#06b6d4] focus:ring-1 focus:ring-[#06b6d4] transition-all"
                   >
                     <option value="" disabled>Select one</option>
                     <option value="working-professional">Working professional</option>
@@ -196,14 +196,14 @@ export default function RegisterWebinarSection() {
               </div>
 
               {/* Checkboxes */}
-              <div className="space-y-4 pt-2">
+              <div className="space-y-3 sm:space-y-4 pt-1 sm:pt-2">
                 <label className="flex items-start gap-3 cursor-pointer group text-xs text-[#a1a1a1] leading-relaxed">
                   <input
                     type="checkbox"
                     name="agreeTerms"
                     checked={formData.agreeTerms}
                     onChange={handleChange}
-                    className="mt-0.5 w-4 h-4 rounded bg-[#0a0a0a] border-white/20 text-[#06b6d4] focus:ring-[#06b6d4] accent-[#06b6d4]"
+                    className="mt-0.5 w-4 h-4 rounded bg-[#0a0a0a] border-white/20 text-[#06b6d4] focus:ring-[#06b6d4] accent-[#06b6d4] flex-shrink-0"
                   />
                   <span>
                     I agree to the{" "}
@@ -225,7 +225,7 @@ export default function RegisterWebinarSection() {
                     name="receiveUpdates"
                     checked={formData.receiveUpdates}
                     onChange={handleChange}
-                    className="mt-0.5 w-4 h-4 rounded bg-[#0a0a0a] border-white/20 text-[#06b6d4] focus:ring-[#06b6d4] accent-[#06b6d4]"
+                    className="mt-0.5 w-4 h-4 rounded bg-[#0a0a0a] border-white/20 text-[#06b6d4] focus:ring-[#06b6d4] accent-[#06b6d4] flex-shrink-0"
                   />
                   <span>
                     I would also like to receive updates, offers, and educational content from Soloneur by email, WhatsApp, and phone. I can withdraw this at any time.{" "}
