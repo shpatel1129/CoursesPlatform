@@ -214,7 +214,7 @@ export default function RegisterWebinarSection() {
                     <Link href="/privacy" className="text-[#06b6d4] hover:underline font-medium">
                       Privacy Policy
                     </Link>
-                    , and consent to Soloatlas Technologies Private Limited processing my personal data to respond to this enquiry and provide the services I request.{" "}
+                    , and consent to ShrikantAi Automation processing my personal data to respond to this enquiry and provide the services I request.{" "}
                     <span className="text-[#a1a1a1]/70">(required)</span>
                   </span>
                 </label>
@@ -228,7 +228,7 @@ export default function RegisterWebinarSection() {
                     className="mt-0.5 w-4 h-4 rounded bg-[#0a0a0a] border-white/20 text-[#06b6d4] focus:ring-[#06b6d4] accent-[#06b6d4] flex-shrink-0"
                   />
                   <span>
-                    I would also like to receive updates, offers, and educational content from Soloneur by email, WhatsApp, and phone. I can withdraw this at any time.{" "}
+                    I would also like to receive updates, offers, and educational content from SkyAI Automation by email, WhatsApp, and phone. I can withdraw this at any time.{" "}
                     <span className="text-[#a1a1a1]/70">(optional)</span>
                   </span>
                 </label>

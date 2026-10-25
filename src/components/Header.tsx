@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { 
   Menu, 
@@ -46,16 +47,23 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-            {/* SkyAI Automation Brand Lockup with Electric Cyan Accent */}
+          {/* SkyAI Automation Brand Lockup with Logo Image */}
           <Link
             href="/"
             className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none flex-shrink-0"
             aria-label="SkyAI Automation"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0369a1] p-[1px] shadow-[0_0_20px_-4px_rgba(6,182,212,0.6)] group-hover:shadow-[0_0_25px_0_rgba(6,182,212,0.8)] transition-all flex-shrink-0">
-              <div className="w-full h-full bg-[#0a0a0a] rounded-[7px] flex items-center justify-center">
-                <span className="font-display text-xs sm:text-sm font-bold text-[#06b6d4]">S</span>
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden p-[1px] bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#38bdf8] shadow-[0_0_20px_-4px_rgba(6,182,212,0.6)] group-hover:shadow-[0_0_25px_0_rgba(6,182,212,0.85)] transition-all flex-shrink-0">
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
+                <Image
+                  src="/images/logo.png"
+                  alt="SkyAI Automation Logo"
+                  fill
+                  sizes="36px"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
 

@@ -18,31 +18,43 @@ export default function PricingTiers() {
 
   const slides: SlideData[] = [
     {
-      title: "Curriculum Overview",
-      desc: "Comprehensive course tracks spanning from foundation to advanced scale.",
-      image: "/images/tiers/elite_curriculum.jpg",
-      tag: "Full Curriculum",
+      title: "Sky Agentic AI Mentorship Program",
+      desc: "A 60-day immersive experience to build a profitable AI-powered business from scratch.",
+      image: "/images/1000100844.png",
+      tag: "Program Overview",
     },
     {
-      title: "Weekly Live Sprints",
-      desc: "Two live interactive sessions per week with founders and mentor team.",
-      image: "/images/tiers/elite_sprints.jpg",
-      tag: "Live Sprints & Solothon",
+      title: "The Sky Advantage — Why Mentorship?",
+      desc: "You don't just need information — you need personal guidance, support, and a clear roadmap.",
+      image: "/images/1000100841.png",
+      tag: "Why Mentorship",
     },
     {
-      title: "Complete AI Suite",
-      desc: "Council of Mentors, Vyas, Content Compass & Objection Crusher.",
-      image: "/images/tiers/elite_ai_tools.jpg",
-      tag: "Proprietary AI Suite",
+      title: "The Difference: Why We Stand Out",
+      desc: "Live interactive sessions, 1-on-1 guidance & real-time doubt solving vs free content.",
+      image: "/images/1000100845.png",
+      tag: "The Difference",
+    },
+    {
+      title: "Start A Legitimate AI Business",
+      desc: "Build real AI automations and client systems with live mentor support and everyday tools.",
+      image: "/images/1000100848.png",
+      tag: "Actionable System",
+    },
+    {
+      title: "Hope Is Not A Strategy",
+      desc: "Proven step-by-step plans to deliver scalable AI services and start making money.",
+      image: "/images/1000100851.png",
+      tag: "Proven Strategy",
     },
   ];
 
-  // Auto-slide every 3.8s, pauses when user hovers
+  // Auto-slide every 4s, pauses when user hovers
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
       setSlide((prev) => (prev + 1) % slides.length);
-    }, 3800);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isHovered, slides.length]);
 
@@ -147,75 +159,73 @@ export default function PricingTiers() {
           <div 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="group relative w-full overflow-hidden rounded-xl border border-[#06b6d4]/30 bg-[#0a0a0a] aspect-[16/10] sm:aspect-[16/9] shadow-[0_0_60px_-25px_rgba(6,182,212,0.35)]"
+            className="group relative w-full overflow-hidden rounded-2xl border border-[#06b6d4]/30 bg-[#0a0a0a] shadow-[0_0_60px_-25px_rgba(6,182,212,0.35)]"
           >
-            {/* Slide Image with smooth cross-fade animation */}
-            <div key={slide} className="absolute inset-0 transition-opacity duration-700 ease-in-out">
-              <Image
-                src={slides[slide].image}
-                alt={slides[slide].title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 768px"
-                className="object-cover object-center transition-all duration-700 group-hover:scale-[1.02]"
-                priority
-              />
-              {/* Subtle gradient vignette to blend with dark luxury styling */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent pointer-events-none" />
+            {/* Slide Image Box (16:9 full view so no text is cut) */}
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0a0a0a]">
+              <div key={slide} className="absolute inset-0 transition-opacity duration-700 ease-in-out">
+                <Image
+                  src={slides[slide].image}
+                  alt={slides[slide].title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  className="object-contain sm:object-cover object-center transition-all duration-700 group-hover:scale-[1.01]"
+                  priority
+                />
+              </div>
+
+              {/* Top Floating Badge */}
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-[#0a0a0a]/90 backdrop-blur-md text-[#06b6d4] border border-[#06b6d4]/40 shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
+                  {slides[slide].tag}
+                </span>
+              </div>
+
+              {/* Prev / Next Arrows */}
+              <button
+                type="button"
+                onClick={handlePrev}
+                aria-label="Previous slide"
+                className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0a0a0a]/85 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-85 hover:opacity-100 backdrop-blur-md transition-all cursor-pointer shadow-lg"
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next slide"
+                className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0a0a0a]/85 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-85 hover:opacity-100 backdrop-blur-md transition-all cursor-pointer shadow-lg"
+              >
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
             </div>
-
-            {/* Top Floating Badge */}
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-              <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-[#0a0a0a]/90 backdrop-blur-md text-[#06b6d4] border border-[#06b6d4]/40 shadow-lg">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
-                {slides[slide].tag}
-              </span>
-            </div>
-
-            {/* Prev / Next Arrows */}
-            <button
-              type="button"
-              onClick={handlePrev}
-              aria-label="Previous slide"
-              className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer shadow-lg"
-            >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              aria-label="Next slide"
-              className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0a0a0a]/80 hover:bg-[#06b6d4] text-[#f5f5f5] hover:text-[#0a0a0a] border border-white/10 hover:border-[#06b6d4] flex items-center justify-center opacity-80 hover:opacity-100 backdrop-blur-sm transition-all cursor-pointer shadow-lg"
-            >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
 
             {/* Bottom Info Bar & Pagination Dots */}
-            <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-6 z-10 flex flex-col justify-end bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent">
-              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-2 sm:gap-4">
-                <div className="min-w-0 flex-1">
-                  <h4 className="font-display text-base sm:text-xl font-bold text-[#f5f5f5] drop-shadow-md truncate">
-                    {slides[slide].title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#a1a1a1] mt-0.5 line-clamp-1 font-light drop-shadow">
-                    {slides[slide].desc}
-                  </p>
-                </div>
+            <div className="p-4 sm:p-5 bg-[#0e0e0e] border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+              <div className="min-w-0 flex-1">
+                <h4 className="font-display text-base sm:text-lg md:text-xl font-bold text-[#f5f5f5] drop-shadow-md truncate">
+                  {slides[slide].title}
+                </h4>
+                <p className="text-xs sm:text-sm text-[#a1a1a1] mt-0.5 line-clamp-1 font-light">
+                  {slides[slide].desc}
+                </p>
+              </div>
 
-                {/* Pagination Dots */}
-                <div className="flex gap-1.5 items-center flex-shrink-0 self-end sm:self-auto">
-                  {slides.map((_, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      onClick={() => setSlide(i)}
-                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        slide === i ? "w-5 sm:w-6 bg-[#06b6d4]" : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
-                      }`}
-                      aria-label={`Go to slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
+              {/* Pagination Dots */}
+              <div className="flex gap-1.5 items-center flex-shrink-0 self-end sm:self-auto">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setSlide(i)}
+                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                      slide === i ? "w-6 bg-[#06b6d4]" : "w-2 bg-white/30 hover:bg-white/60"
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>

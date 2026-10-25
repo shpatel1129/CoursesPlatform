@@ -24,77 +24,64 @@ export function SoloneurMetricBar() {
   return (
     <section className="border-y border-white/5 bg-[#0c0c0c]/90 backdrop-blur-sm">
       <div className="max-w-4xl mx-auto py-4 sm:py-6 px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-center">
-          <div className="w-full sm:w-auto py-1 sm:py-0 px-4 sm:px-6 lg:px-8">
-            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">4 or 12 course tracks</span>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-center tracking-wider uppercase">
+          <div className="w-full sm:w-auto py-1 sm:py-0 px-6 sm:px-8 lg:px-10">
+            <span className="text-xs sm:text-sm font-semibold text-[#f5f5f5] tracking-wider">60 DAYS</span>
           </div>
-          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-4 sm:px-6 lg:px-8">
-            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">2 or 4 AI tools</span>
+          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
+            <span className="text-xs sm:text-sm font-semibold text-[#f5f5f5] tracking-wider">8 WEEKS</span>
           </div>
-          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-4 sm:px-6 lg:px-8">
-            <span className="text-xs sm:text-sm text-[#f5f5f5]/85 tracking-wide">Live trainings + community</span>
+          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
+            <span className="text-xs sm:text-sm font-semibold text-[#06b6d4] tracking-wider">LIVE GUIDANCE + COMMUNITY</span>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
+const story = [
+  "Over the last 5 years in the online industry, I've learned a lot, experimented with different things, and understood how online opportunities actually work.",
+  "When I started exploring AI more closely, I felt it was something more people should get the chance to understand and learn practically.",
+  "I didn't want to build just another course. I wanted to create a space where people could learn with me live, ask questions, and actually see how AI solutions are built.",
+  "I want to share what I've learned through my own experience and help others gain the confidence to start building something of their own.",
+];
 export function SoloneurAboutSection() {
   return (
     <section id="about" className="py-16 sm:py-24 bg-[#0a0a0a] border-t border-white/5 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-center text-[#f5f5f5]">
-          Why we built this.
+          Why I Started SKY
         </h2>
-
-        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#a1a1a1] leading-relaxed text-center max-w-3xl mx-auto font-light">
-          We started Soloneur because we were tired of watching capable people drown in scattered advice and fake gurus — full of ambition, but with no real system to follow. So we built the thing we wished we&apos;d had: a real curriculum, real AI tools, and a room full of people doing the work. We&apos;re not here to sell a dream. We&apos;re here to hand you the map, the tools, and the people that make it real. This is the age of one — where a single person, equipped right, can build what once took a whole company.
-        </p>
-
-        <p className="mt-5 sm:mt-6 text-[#06b6d4] font-display text-center text-base sm:text-lg">
-          — Tushar &amp; Abhishek
-        </p>
-
-        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
-          {/* Tushar Gaur Card */}
-          <div className="group block rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] overflow-hidden transition-all hover:border-[#06b6d4]/40 hover:shadow-[0_0_40px_-15px_rgba(6,182,212,0.4)]">
-            <div className="aspect-[4/5] overflow-hidden bg-[#0a0a0a] relative">
-              <Image 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
-                alt="Tushar Gaur" 
-                fill 
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
+ 
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
+          {/* Story */}
+          <div className="md:col-span-3 order-2 md:order-1">
+            <div className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-[#a1a1a1] leading-relaxed font-light">
+              {story.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-            <div className="p-5 sm:p-6 flex items-end justify-between gap-4">
-              <div>
-                <div className="font-display text-xl sm:text-2xl text-[#f5f5f5]">Tushar Gaur</div>
-                <div className="text-xs sm:text-sm text-[#a1a1a1] mt-1">Founder</div>
-              </div>
-              <div className="text-xs text-[#06b6d4] tracking-wide opacity-80 group-hover:opacity-100 transition-opacity">
-                @thetushargaur ↗
-              </div>
-            </div>
+ 
+            <p className="mt-6 sm:mt-8 text-[#06b6d4] font-display text-base sm:text-lg">
+              — Shrikant Yadav
+            </p>
           </div>
-
-          {/* Abhishek Singh Card */}
-          <div className="group block rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] overflow-hidden transition-all hover:border-[#06b6d4]/40 hover:shadow-[0_0_40px_-15px_rgba(6,182,212,0.4)]">
-            <div className="aspect-[4/5] overflow-hidden bg-[#0a0a0a] relative">
-              <Image 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
-                alt="Abhishek Singh" 
-                fill 
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-5 sm:p-6 flex items-end justify-between gap-4">
-              <div>
-                <div className="font-display text-xl sm:text-2xl text-[#f5f5f5]">Abhishek Singh</div>
-                <div className="text-xs sm:text-sm text-[#a1a1a1] mt-1">Founder</div>
+ 
+          {/* Shrikant Yadav Card */}
+          <div className="md:col-span-2 order-1 md:order-2 w-full max-w-xs mx-auto md:max-w-none">
+            <div className="group block rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] overflow-hidden transition-all hover:border-[#06b6d4]/40 hover:shadow-[0_0_40px_-15px_rgba(6,182,212,0.4)]">
+              <div className="aspect-[4/5] overflow-hidden bg-[#0a0a0a] relative">
+                <Image
+                  src="/images/Shikant.PNG"
+                  alt="Shrikant Yadav"
+                  fill
+                  sizes="(min-width: 768px) 320px, 80vw"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                />
               </div>
-              <div className="text-xs text-[#06b6d4] tracking-wide opacity-80 group-hover:opacity-100 transition-opacity">
-                @abhishekkasanaofficial ↗
+              <div className="p-5 sm:p-6">
+                <div className="font-display text-xl sm:text-2xl text-[#f5f5f5]">Shrikant Yadav</div>
+                <div className="text-xs sm:text-sm text-[#a1a1a1] mt-1">Founder, SKY</div>
               </div>
             </div>
           </div>
@@ -415,7 +402,7 @@ export function SoloneurCommunitySection() {
 
         <div className="mt-8 sm:mt-10">
           <a 
-            href="https://chat.whatsapp.com/" 
+            href="https://chat.whatsapp.com/CvHTLno2Eme1Fs3nuC4vhH" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-md font-medium border border-[#06b6d4]/40 text-[#f5f5f5] hover:border-[#06b6d4] hover:text-[#06b6d4] bg-transparent hover:bg-[#06b6d4]/[0.05] transition-colors h-11 px-8 text-sm"
@@ -444,14 +431,6 @@ export function SoloneurFAQSection() {
     {
       q: "Do I need any special tools or budget to start?",
       a: "No. You start with the curriculum and the built-in AI tools. Everything you need to learn is included.",
-    },
-    {
-      q: "What does the membership include?",
-      a: "Two tiers. Core is a full year with 4 course tracks, both weekly live trainings, Council of Mentors, Vyas, and the community. Elite is a full year with all 12 course tracks and all 4 AI tools. Pricing for both is revealed live in our webinar.",
-    },
-    {
-      q: "What's the difference between Core and Elite?",
-      a: "Core gives you the four foundation tracks plus Council of Mentors and Vyas. Elite unlocks all twelve tracks and adds Content Compass and Objection Crusher. Both tiers get the same two weekly live sessions and the same community access.",
     },
     {
       q: "Is there a refund policy?",

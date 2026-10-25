@@ -120,7 +120,7 @@ export default function CurriculumTracksSection() {
           </h2>
 
           <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-[#a1a1a1] max-w-2xl font-light">
-            Twelve tracks in all. Core covers the first four; Elite unlocks all twelve.
+            60 DAYS | 8 WEEKS | LIVE GUIDANCE + COMMUNITY
           </p>
         </div>
 

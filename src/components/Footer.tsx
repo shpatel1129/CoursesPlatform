@@ -1,6 +1,18 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, Lock, Award, Mail } from "lucide-react";
+import Image from "next/image";
+import { Mail } from "lucide-react";
+
+const SUPPORT_EMAIL = "skymentorshipsupport@gmail.com";
+
+// Home page sections, in the same order they appear on the page.
+// NOTE: make sure each id below matches the `id` on that section's <section> tag.
+const homeSections = [
+  { label: "Home", href: "/" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Curriculum", href: "/#curriculum" },
+  { label: "Register for Webinar", href: "/#apply" },
+];
 
 export default function Footer() {
   return (
@@ -13,9 +25,15 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#0369a1] p-[1px] shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-                <div className="w-full h-full bg-[#0a0a0a] rounded-[7px] flex items-center justify-center">
-                  <span className="font-display text-sm font-bold text-[#06b6d4]">S</span>
+              <div className="relative w-8 h-8 rounded-full overflow-hidden p-[1px] bg-gradient-to-br from-[#06b6d4] via-[#0284c7] to-[#38bdf8] shadow-[0_0_15px_rgba(6,182,212,0.4)] flex-shrink-0">
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
+                  <Image
+                    src="/images/logo.png"
+                    alt="SkyAI Automation Logo"
+                    fill
+                    sizes="32px"
+                    className="object-cover"
+                  />
                 </div>
               </div>
               <span className="font-display text-xl font-bold tracking-tight text-[#f5f5f5] leading-none">
@@ -30,7 +48,7 @@ export default function Footer() {
             <div className="pt-2">
               <span className="text-xs text-[#a1a1a1] font-medium bg-[#0a0a0a] px-3 py-1.5 rounded-md border border-white/10 inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse" />
-                SkyAI Automation Private Limited
+                SkyAI Automation
               </span>
             </div>
           </div>
@@ -46,9 +64,6 @@ export default function Footer() {
                 <Link href="/#workshop" className="hover:text-[#06b6d4] transition-colors">Live Workshop</Link>
               </li>
               <li>
-                <Link href="/#pricing" className="hover:text-[#06b6d4] transition-colors">Tiers</Link>
-              </li>
-              <li>
                 <Link href="/#community" className="hover:text-[#06b6d4] transition-colors">Community</Link>
               </li>
               <li>
@@ -60,28 +75,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Course Tracks */}
+          {/* Home Page Sections */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f5f5]">Curriculum Tracks</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5f5f5]">Explore</h4>
             <ul className="flex flex-col gap-2.5 text-xs">
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">Niche Clarity &amp; Positioning</Link>
-              </li>
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">Digital Products &amp; Systems</Link>
-              </li>
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">AI Influencer &amp; UGC Videos</Link>
-              </li>
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">AI Voice Calling Agents</Link>
-              </li>
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">Websites Without Code</Link>
-              </li>
-              <li>
-                <Link href="/#curriculum" className="hover:text-[#06b6d4] transition-colors">YouTube Mastery</Link>
-              </li>
+              {homeSections.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="hover:text-[#06b6d4] transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -105,11 +109,11 @@ export default function Footer() {
 
             <div className="pt-2">
               <p className="text-[11px] text-[#a1a1a1]/70">Support &amp; enquiries</p>
-              <a 
-                href="mailto:support@soloneur.in" 
-                className="text-xs text-[#06b6d4] hover:underline font-medium inline-flex items-center gap-1 mt-1"
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                className="text-xs text-[#06b6d4] hover:underline font-medium inline-flex items-center gap-1 mt-1 break-all"
               >
-                <Mail className="w-3.5 h-3.5" /> support@soloneur.in
+                <Mail className="w-3.5 h-3.5 flex-shrink-0" /> {SUPPORT_EMAIL}
               </a>
             </div>
           </div>
@@ -118,7 +122,6 @@ export default function Footer() {
 
         {/* Bottom Attribution */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#a1a1a1]/60">
-          <p>© {new Date().getFullYear()} Soloatlas Technologies Private Limited. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-[#f5f5f5] transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-[#f5f5f5] transition-colors">Terms</Link>

@@ -20,16 +20,16 @@ export default function WorkshopSection() {
           {/* Left Column (Workshop Media Frame) */}
           <div className="lg:col-span-6 order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-2xl border border-[#06b6d4]/30 bg-[#0a0a0a] shadow-[0_0_60px_-20px_rgba(6,182,212,0.35)] group">
-              <div className="relative aspect-[16/11] w-full overflow-hidden">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/Learn AI Skills.PNG"
                   alt="Live AI Masterclass — Learn AI Skills. Turn Them Into Income in 2026."
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent opacity-50 pointer-events-none" />
 
                 {/* Overlay Badge */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
