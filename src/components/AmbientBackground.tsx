@@ -13,15 +13,15 @@ export default function AmbientBackground({
   className = "",
   intensity = "normal",
 }: AmbientBackgroundProps) {
-  // Generate consistent ember particle data
+  // Generate consistent gold points / ember particle data
   const embers = useMemo(() => {
-    return Array.from({ length: 28 }).map((_, i) => {
-      const left = ((i * 37) % 96) + 2;
-      const size = 2.5 + ((i * 7) % 4);
-      const duration = 12 + ((i * 13) % 12);
-      const delay = -((i * 19) % 20);
-      const drift = ((i % 2 === 0 ? 1 : -1) * (((i * 11) % 60) + 15));
-      const opacity = 0.35 + (((i * 5) % 50) / 100);
+    return Array.from({ length: 35 }).map((_, i) => {
+      const left = ((i * 29) % 96) + 2;
+      const size = 4 + ((i * 7) % 5); // 4px to 9px
+      const duration = 9 + ((i * 11) % 9); // 9s to 18s
+      const delay = -((i * 13) % 15);
+      const drift = ((i % 2 === 0 ? 1 : -1) * (((i * 11) % 50) + 15)); // number, e.g. 35
+      const opacity = 0.8 + (((i * 7) % 20) / 100);
 
       return {
         id: i,
@@ -42,23 +42,26 @@ export default function AmbientBackground({
       aria-hidden="true"
       className={`pointer-events-none select-none overflow-hidden ${
         isFixed ? "fixed inset-0" : "absolute inset-0"
-      } ${intensity === "subtle" ? "opacity-25" : "opacity-40"} ${className}`}
+      } ${intensity === "subtle" ? "opacity-75" : "opacity-100"} ${className}`}
     >
-      {/* Subtle fine grid */}
+      {/* Background point-by-point dot matrix pattern */}
+      <div className="ambient-dots absolute inset-0" />
+
+      {/* Background fine grid */}
       <div className="ambient-grid absolute inset-0" />
 
-      {/* Ambient Electric Cyan rotating beam */}
-      <div className="ambient-beam ambient-beam-cyan absolute inset-[-20%]" />
+      {/* Ambient Warm Gold rotating beam */}
+      <div className="ambient-beam ambient-beam-gold absolute inset-[-20%]" />
 
-      {/* Ambient deep slate beam */}
-      <div className="ambient-beam ambient-beam-slate absolute inset-[-25%]" />
+      {/* Ambient Champagne beam */}
+      <div className="ambient-beam ambient-beam-champagne absolute inset-[-25%]" />
 
-      {/* Floating cyan / ice-blue orbs */}
+      {/* Floating gold orbs */}
       <div className="ambient-orb ambient-orb-a absolute" />
       <div className="ambient-orb ambient-orb-b absolute" />
       <div className="ambient-orb ambient-orb-c absolute" />
 
-      {/* Floating embers */}
+      {/* Floating warm gold glowing points / embers */}
       <div className="embers absolute inset-0 overflow-hidden">
         {embers.map((ember) => (
           <span
@@ -73,6 +76,7 @@ export default function AmbientBackground({
                 animationDelay: ember.delay,
                 opacity: ember.opacity,
                 "--ember-drift": ember.drift,
+                "--ember-opacity": ember.opacity,
               } as React.CSSProperties
             }
           />
@@ -80,7 +84,7 @@ export default function AmbientBackground({
       </div>
 
       {/* Ambient luminous scan line */}
-      <div className="ambient-scan absolute inset-x-0 top-0 h-px" />
+      <div className="ambient-scan absolute inset-x-0 top-0 h-[2px]" />
     </div>
   );
 }

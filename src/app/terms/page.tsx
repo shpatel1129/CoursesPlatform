@@ -198,29 +198,29 @@ function renderBlock(block: Block, i: number) {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col">
       <Header />
 
       <main className="flex-grow pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#161616] tracking-tight mb-2">
             Terms &amp; Conditions
           </h1>
-          <p className="text-base text-slate-300 mb-1">
+          <p className="text-base text-[#555555] mb-1">
             SKY AI Automation Mentorship Program &amp; Webinars
           </p>
-          <p className="text-sm text-slate-400 mb-8">Last Updated: 25 October 2026</p>
+          <p className="text-sm text-[#777777] mb-8">Last Updated: 25 October 2026</p>
 
-          <div className="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-8 text-sm text-slate-300 leading-relaxed">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFCF7] border-2 border-[#E8CC9D] shadow-sm space-y-8 text-sm text-[#555555] leading-relaxed">
             {sections.map((section) => (
               <section key={section.title}>
-                <h2 className="text-lg font-bold text-white mb-3">{section.title}</h2>
+                <h2 className="text-lg font-bold text-[#161616] mb-3">{section.title}</h2>
                 {section.blocks.map(renderBlock)}
               </section>
             ))}
 
             <section>
-              <h2 className="text-lg font-bold text-white mb-3">13. Contact</h2>
+              <h2 className="text-lg font-bold text-[#161616] mb-3">13. Contact</h2>
               <p className="mb-3">
                 For questions regarding the mentorship program, webinars, or these Terms &amp; Conditions, contact:
               </p>
@@ -228,7 +228,7 @@ export default function TermsPage() {
                 Email:{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                  className="text-[#925B0A] hover:text-[#D99A19] underline underline-offset-2 font-semibold"
                 >
                   {CONTACT_EMAIL}
                 </a>
@@ -236,7 +236,7 @@ export default function TermsPage() {
               <p className="mb-3">Business: SKY AI Automation Systems &amp; Solutions</p>
             </section>
 
-            <div className="pt-6 border-t border-slate-800 text-center text-slate-400">
+            <div className="pt-6 border-t border-[#E8CC9D]/50 text-center text-[#777777]">
               By registering for or purchasing a program, you acknowledge that you have had an opportunity to read
               these Terms &amp; Conditions.
             </div>

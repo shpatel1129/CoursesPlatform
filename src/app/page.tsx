@@ -16,18 +16,18 @@ import RegisterWebinarSection from "@/components/RegisterWebinarSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SkyAI Automation — Build AI-powered income streams of your own.",
+  title: "SkyAI Automation Build AI-powered income streams of your own.",
   description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders. Solo, with a system.",
   openGraph: {
-    title: "SkyAI Automation — Build AI-powered income streams of your own.",
-    description: "SkyAI Automation gives you the skills, the AI tools, and the system to start and grow an online business — solo, from zero.",
+    title: "SkyAI Automation Build AI-powered income streams of your own.",
+    description: "SkyAI Automation gives you the skills, the AI tools, and the system to start and grow an online business solo, from zero.",
     type: "website",
   },
 };
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col selection:bg-[#06b6d4]/30 selection:text-white">
+    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col selection:bg-[#D99A19]/25 selection:text-[#161616]">
       {/* 1. Header Navigation */}
       <Header />
 

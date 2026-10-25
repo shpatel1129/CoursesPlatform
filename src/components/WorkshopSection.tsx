@@ -7,11 +7,11 @@ import { ArrowRight, Zap, Bot, MessageSquare, Monitor, Settings } from "lucide-r
 
 export default function WorkshopSection() {
   return (
-    <section id="workshop" className="py-16 sm:py-24 relative bg-[#0c0c0c]/80 border-t border-white/5 overflow-hidden">
+    <section id="workshop" className="py-16 sm:py-24 relative bg-[#FFFCF7] border-t border-[#E8CC9D]/60 overflow-hidden">
       {/* Background ambient lighting */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#06b6d4]/[0.06] rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#F5BD4A]/[0.12] rounded-full blur-[140px] pointer-events-none" 
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -19,22 +19,22 @@ export default function WorkshopSection() {
           
           {/* Left Column (Workshop Media Frame) */}
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="relative overflow-hidden rounded-2xl border border-[#06b6d4]/30 bg-[#0a0a0a] shadow-[0_0_60px_-20px_rgba(6,182,212,0.35)] group">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-[#E8CC9D] bg-[#FAF5EB] shadow-[0_15px_40px_-10px_rgba(217,154,25,0.18)] group">
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
                 <Image
                   src="/images/Learn AI Skills.PNG"
-                  alt="Live AI Masterclass — Learn AI Skills. Turn Them Into Income in 2026."
+                  alt="Live AI Masterclass Learn AI Skills. Turn Them Into Income in 2026."
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent opacity-50 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#161616]/30 via-transparent to-transparent opacity-40 pointer-events-none" />
 
                 {/* Overlay Badge */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0a0a0a]/90 text-[#06b6d4] border border-[#06b6d4]/30 backdrop-blur-md flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse" />
+                  <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FFFCF7]/95 text-[#925B0A] border border-[#E8CC9D] backdrop-blur-md flex items-center gap-2 shadow-sm">
+                    <span className="w-2 h-2 rounded-full bg-[#D99A19] animate-pulse" />
                     Live Workshop
                   </span>
                 </div>
@@ -46,35 +46,35 @@ export default function WorkshopSection() {
           <div className="lg:col-span-6 flex flex-col items-start order-1 lg:order-2">
             
             {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/[0.08] px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#06b6d4] mb-4 sm:mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#06b6d4]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#E8CC9D] bg-[#FAF5EB] px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#925B0A] font-semibold mb-4 sm:mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D99A19]" />
               LIVE AI MASTERCLASS
             </div>
 
             {/* Headline matching image */}
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] sm:leading-[1.08] tracking-tight text-[#f5f5f5] break-words">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] sm:leading-[1.08] tracking-tight text-[#161616] break-words">
               Learn AI Skills.<br />
-              <span className="text-[#06b6d4]">Turn Them Into<br />
+              <span className="bg-gradient-to-r from-[#925B0A] via-[#D99A19] to-[#F5BD4A] bg-clip-text text-transparent">Turn Them Into<br />
               Income</span> in 2026.
             </h2>
 
             {/* Primary description */}
-            <p className="mt-4 sm:mt-5 text-[#a1a1a1] leading-relaxed text-sm sm:text-base font-light">
-              Discover how to build AI agents, chatbots, websites and powerful automation systems — and learn how these skills can become valuable services businesses need.
+            <p className="mt-4 sm:mt-5 text-[#555555] leading-relaxed text-sm sm:text-base font-light">
+              Discover how to build AI agents, chatbots, websites and powerful automation systems and learn how these skills can become valuable services businesses need.
             </p>
 
             {/* Highlighted box with Zap icon */}
-            <div className="mt-5 sm:mt-6 p-4 sm:p-5 rounded-2xl bg-[#0a0a0a]/90 border border-[#06b6d4]/25 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 shadow-lg w-full">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/30 flex items-center justify-center flex-shrink-0 text-[#06b6d4]">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-[#06b6d4]" />
+            <div className="mt-5 sm:mt-6 p-4 sm:p-5 rounded-2xl bg-[#FAF5EB] border border-[#E8CC9D] flex flex-col sm:flex-row items-start gap-3 sm:gap-4 shadow-sm w-full">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FFFCF7] border border-[#E8CC9D] flex items-center justify-center flex-shrink-0 text-[#D99A19]">
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-[#D99A19]" />
               </div>
               <div>
-                <h4 className="text-sm sm:text-base font-bold text-[#f5f5f5]">
+                <h4 className="text-sm sm:text-base font-bold text-[#161616]">
                   No vague theory. No hidden steps.
                 </h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#a1a1a1] leading-relaxed font-light">
+                <p className="mt-1 text-xs sm:text-sm text-[#555555] leading-relaxed font-light">
                   Watch me build real AI solutions LIVE, step by step, and see the tools, workflows and processes behind how they work.{" "}
-                  <span className="text-[#06b6d4] font-medium">Everything explained transparently</span>.
+                  <span className="text-[#925B0A] font-medium">Everything explained transparently</span>.
                 </p>
               </div>
             </div>
@@ -82,59 +82,59 @@ export default function WorkshopSection() {
             {/* 4 Live Build Feature Badges: 2 cols on mobile, 4 cols on sm+ */}
             <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2 text-center w-full pt-1">
               {/* 1. AI Agents */}
-              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#0e0e0e]/50 sm:bg-transparent border border-white/5 sm:border-transparent">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-[#06b6d4] mb-2 shadow-sm">
+              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#FAF5EB] sm:bg-transparent border border-[#E8CC9D]/50 sm:border-transparent">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFFCF7] border border-[#E8CC9D] flex items-center justify-center text-[#D99A19] mb-2 shadow-sm">
                   <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span className="text-xs font-semibold text-[#f5f5f5]">AI Agents</span>
-                <span className="text-[10px] text-[#a1a1a1] mt-0.5 font-light">(Live Build)</span>
+                <span className="text-xs font-semibold text-[#161616]">AI Agents</span>
+                <span className="text-[10px] text-[#777777] mt-0.5 font-light">(Live Build)</span>
               </div>
 
               {/* 2. Chatbots */}
-              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#0e0e0e]/50 sm:bg-transparent border border-white/5 sm:border-transparent">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-[#06b6d4] mb-2 shadow-sm">
+              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#FAF5EB] sm:bg-transparent border border-[#E8CC9D]/50 sm:border-transparent">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFFCF7] border border-[#E8CC9D] flex items-center justify-center text-[#D99A19] mb-2 shadow-sm">
                   <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span className="text-xs font-semibold text-[#f5f5f5]">Chatbots</span>
-                <span className="text-[10px] text-[#a1a1a1] mt-0.5 font-light">(Live Build)</span>
+                <span className="text-xs font-semibold text-[#161616]">Chatbots</span>
+                <span className="text-[10px] text-[#777777] mt-0.5 font-light">(Live Build)</span>
               </div>
 
               {/* 3. Websites */}
-              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#0e0e0e]/50 sm:bg-transparent border border-white/5 sm:border-transparent">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-[#06b6d4] mb-2 shadow-sm">
+              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#FAF5EB] sm:bg-transparent border border-[#E8CC9D]/50 sm:border-transparent">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFFCF7] border border-[#E8CC9D] flex items-center justify-center text-[#D99A19] mb-2 shadow-sm">
                   <Monitor className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span className="text-xs font-semibold text-[#f5f5f5]">Websites</span>
-                <span className="text-[10px] text-[#a1a1a1] mt-0.5 font-light">(Live Build)</span>
+                <span className="text-xs font-semibold text-[#161616]">Websites</span>
+                <span className="text-[10px] text-[#777777] mt-0.5 font-light">(Live Build)</span>
               </div>
 
               {/* 4. Automations */}
-              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#0e0e0e]/50 sm:bg-transparent border border-white/5 sm:border-transparent">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-[#06b6d4] mb-2 shadow-sm">
+              <div className="flex flex-col items-center p-2.5 sm:p-1 rounded-xl bg-[#FAF5EB] sm:bg-transparent border border-[#E8CC9D]/50 sm:border-transparent">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFFCF7] border border-[#E8CC9D] flex items-center justify-center text-[#D99A19] mb-2 shadow-sm">
                   <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span className="text-xs font-semibold text-[#f5f5f5]">Automations</span>
-                <span className="text-[10px] text-[#a1a1a1] mt-0.5 font-light">(Live Build)</span>
+                <span className="text-xs font-semibold text-[#161616]">Automations</span>
+                <span className="text-[10px] text-[#777777] mt-0.5 font-light">(Live Build)</span>
               </div>
             </div>
 
             {/* Practical workshop note */}
-            <p className="mt-5 sm:mt-6 text-xs sm:text-sm text-[#a1a1a1] leading-relaxed font-light">
+            <p className="mt-5 sm:mt-6 text-xs sm:text-sm text-[#555555] leading-relaxed font-light">
               A practical, live workshop for anyone ready to explore the AI opportunity, learn in-demand skills and discover how to turn what you learn into income opportunities.
             </p>
 
             {/* Pricing Section */}
             <div className="mt-5 sm:mt-6 flex items-baseline gap-2">
-              <span className="font-display text-3xl sm:text-5xl font-bold text-[#f5f5f5]">₹999</span>
-              <span className="text-xs sm:text-sm text-[#a1a1a1] font-light">/ seat</span>
+              <span className="font-display text-3xl sm:text-5xl font-bold text-[#161616]">₹999</span>
+              <span className="text-xs sm:text-sm text-[#777777] font-light">/ seat</span>
             </div>
-            <p className="mt-1 text-xs text-[#a1a1a1]">Inclusive of 18% GST</p>
+            <p className="mt-1 text-xs text-[#777777]">Inclusive of 18% GST</p>
 
             {/* Register Button */}
             <div className="mt-6 w-full">
               <Link
                 href="#apply"
-                className="w-full inline-flex items-center justify-center gap-2 whitespace-normal sm:whitespace-nowrap cursor-pointer rounded-lg text-sm sm:text-base font-semibold bg-[#06b6d4] text-[#0a0a0a] shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:bg-[#38bdf8] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(6,182,212,0.7)] transition-all duration-200 h-12 sm:h-13 px-6 sm:px-8 py-3 text-center"
+                className="w-full inline-flex items-center justify-center gap-2 whitespace-normal sm:whitespace-nowrap cursor-pointer rounded-lg text-sm sm:text-base font-semibold bg-[#D99A19] text-[#FFFCF7] shadow-[0_4px_18px_rgba(217,154,25,0.35)] hover:bg-[#925B0A] hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(146,91,10,0.45)] transition-all duration-200 h-12 sm:h-13 px-6 sm:px-8 py-3 text-center"
               >
                 <span>Register for the Live Workshop</span>
                 <ArrowRight className="w-4 h-4 flex-shrink-0" />

@@ -39,7 +39,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "2. Refund Request Window — 48 Hours",
+    title: "2. Refund Request Window 48 Hours",
     blocks: [
       {
         type: "p",
@@ -300,7 +300,7 @@ function renderSection(section: Section) {
 const mailLink = (
   <a
     href={`mailto:${CONTACT_EMAIL}`}
-    className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2"
+    className="text-[#925B0A] hover:text-[#D99A19] underline underline-offset-2 font-semibold"
   >
     {CONTACT_EMAIL}
   </a>
@@ -308,30 +308,30 @@ const mailLink = (
 
 export default function RefundPage() {
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col">
       <Header />
 
       <main className="flex-grow pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 text-emerald-400">
-              <ShieldCheck className="w-8 h-8" />
+            <div className="w-16 h-16 rounded-2xl bg-[#FFFCF7] border-2 border-[#E8CC9D] flex items-center justify-center mx-auto mb-4 text-[#925B0A] shadow-sm">
+              <ShieldCheck className="w-8 h-8 text-[#D99A19]" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#161616] tracking-tight mb-3">
               Refund &amp; Cancellation Policy
             </h1>
-            <p className="text-base text-slate-300 mb-1">SKY AI Automation Systems &amp; Solutions</p>
-            <p className="text-sm text-slate-400">Last Updated: 25 October 2026</p>
+            <p className="text-base text-[#555555] mb-1">SKY AI Automation Systems &amp; Solutions</p>
+            <p className="text-sm text-[#777777]">Last Updated: 25 October 2026</p>
           </div>
 
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xl space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <div className="p-6 sm:p-10 rounded-3xl bg-[#FFFCF7] border-2 border-[#E8CC9D] shadow-sm space-y-8 text-[#555555] text-sm sm:text-base leading-relaxed">
             {sections.map(renderSection)}
 
             {/* Section 9 contact details and required information */}
-            <div className="-mt-4">
-              <p className="mb-3">Email: {mailLink}</p>
-              <p className="mb-2">Please include the following information in your email:</p>
-              <ul className="list-disc pl-6 space-y-1.5 mb-3 marker:text-slate-500">
+            <div className="-mt-4 p-5 rounded-2xl bg-[#FAF5EB] border border-[#E8CC9D]">
+              <p className="mb-3 font-semibold text-[#161616]">Email: {mailLink}</p>
+              <p className="mb-2 text-[#161616]">Please include the following information in your email:</p>
+              <ul className="list-disc pl-6 space-y-1.5 mb-3 marker:text-[#925B0A]">
                 <li>Full name used during registration</li>
                 <li>Email address or phone number associated with the purchase</li>
                 <li>Name of the mentorship program, webinar, workshop, or service</li>
@@ -355,16 +355,16 @@ export default function RefundPage() {
             {afterRequestSections.map(renderSection)}
 
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">13. Contact Us</h2>
+              <h2 className="text-xl font-bold text-[#161616] mb-3">13. Contact Us</h2>
               <p className="mb-3">
                 For refund requests, cancellation enquiries, or questions about this policy, please contact:
               </p>
-              <p className="mb-1 font-semibold text-white">SKY AI Automation Systems &amp; Solutions</p>
+              <p className="mb-1 font-semibold text-[#161616]">SKY AI Automation Systems &amp; Solutions</p>
               <p className="mb-3">Email: {mailLink}</p>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">14. Governing Law</h2>
+              <h2 className="text-xl font-bold text-[#161616] mb-3">14. Governing Law</h2>
               <p className="mb-3">
                 This policy is intended to be interpreted in accordance with the applicable laws of India, including
                 applicable consumer protection, contract, payment, and data protection laws, as relevant to the
@@ -377,24 +377,24 @@ export default function RefundPage() {
               </p>
             </section>
 
-            <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="pt-6 border-t border-[#E8CC9D]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h4 className="text-sm font-bold text-white">Questions before you purchase?</h4>
-                <p className="text-xs text-slate-400">
+                <h4 className="text-sm font-bold text-[#161616]">Questions before you purchase?</h4>
+                <p className="text-xs text-[#777777]">
                   Reach out to us, or register for the webinar to learn more.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-xs font-semibold text-slate-200 border border-slate-700 hover:bg-slate-800 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-xs font-semibold text-[#161616] bg-[#FAF5EB] border border-[#E8CC9D] hover:border-[#D99A19] hover:text-[#925B0A] transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   Email us
                 </a>
                 <Link
                   href="/#apply"
-                  className="px-6 py-3 rounded-md text-xs font-semibold text-[#0a0a0a] bg-[#06b6d4] hover:bg-[#38bdf8] transition-colors shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                  className="px-6 py-3 rounded-md text-xs font-semibold text-[#FFFCF7] bg-[#D99A19] hover:bg-[#925B0A] transition-all shadow-[0_4px_16px_rgba(217,154,25,0.35)]"
                 >
                   Register for the webinar
                 </Link>
@@ -402,8 +402,8 @@ export default function RefundPage() {
             </div>
 
             <div className="text-center">
-              <p className="font-semibold text-white">SKY AI Automation Systems &amp; Solutions</p>
-              <p className="text-slate-400 mt-1">
+              <p className="font-semibold text-[#161616]">SKY AI Automation Systems &amp; Solutions</p>
+              <p className="text-[#777777] mt-1">
                 Building practical AI skills, automation systems, and business opportunities through technology and
                 education.
               </p>

@@ -461,27 +461,27 @@ function renderBlock(block: Block, i: number) {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col">
       <Header />
 
       <main className="flex-grow pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#161616] tracking-tight mb-2">
             Privacy Policy
           </h1>
-          <p className="text-base text-slate-300 mb-1">SKY AI Automation Systems &amp; Solutions</p>
-          <p className="text-sm text-slate-400 mb-8">Last Updated: 25 October 2026</p>
+          <p className="text-base text-[#555555] mb-1">SKY AI Automation Systems &amp; Solutions</p>
+          <p className="text-sm text-[#777777] mb-8">Last Updated: 25 October 2026</p>
 
-          <div className="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-8 text-sm text-slate-300 leading-relaxed">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFCF7] border-2 border-[#E8CC9D] shadow-sm space-y-8 text-sm text-[#555555] leading-relaxed">
             {sections.map((section) => (
               <section key={section.title}>
-                <h2 className="text-lg font-bold text-white mb-3">{section.title}</h2>
+                <h2 className="text-lg font-bold text-[#161616] mb-3">{section.title}</h2>
                 {section.blocks.map(renderBlock)}
               </section>
             ))}
 
             <section>
-              <h2 className="text-lg font-bold text-white mb-3">15. Contact Us</h2>
+              <h2 className="text-lg font-bold text-[#161616] mb-3">15. Contact Us</h2>
               <p className="mb-3">
                 If you have questions about this Privacy Policy, wish to exercise your privacy rights, or want to
                 raise a concern relating to your personal information, you can contact us at:
@@ -490,7 +490,7 @@ export default function PrivacyPage() {
                 Email:{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                  className="text-[#925B0A] hover:text-[#D99A19] underline underline-offset-2 font-semibold"
                 >
                   {CONTACT_EMAIL}
                 </a>
@@ -498,7 +498,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-lg font-bold text-white mb-3">16. Applicable Law</h2>
+              <h2 className="text-lg font-bold text-[#161616] mb-3">16. Applicable Law</h2>
               <p className="mb-3">
                 This Privacy Policy is intended to be interpreted in accordance with the applicable laws of India,
                 including relevant data protection and information technology laws, as applicable to our activities.
@@ -509,9 +509,9 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <div className="pt-6 border-t border-slate-800 text-center">
-              <p className="font-semibold text-white">SKY AI Automation Systems &amp; Solutions</p>
-              <p className="text-slate-400 mt-1">
+            <div className="pt-6 border-t border-[#E8CC9D]/50 text-center">
+              <p className="font-semibold text-[#161616]">SKY AI Automation Systems &amp; Solutions</p>
+              <p className="text-[#777777] mt-1">
                 Building practical AI skills, automation systems, and business opportunities through technology and
                 education.
               </p>

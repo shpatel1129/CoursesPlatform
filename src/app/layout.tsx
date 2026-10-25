@@ -15,26 +15,26 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#FAF5EB",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "SkyAI Automation — Build AI-powered income streams of your own.",
-    template: "%s | SkyAI Automation",
+    default: "SKY AI Mentorship Program Build AI-powered income streams of your own.",
+    template: "%s | SKY AI Automation",
   },
   description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders. Solo, with a system.",
-  keywords: ["skyai automation", "online business", "income streams", "ai tools", "digital marketing", "solopreneur india", "first time founders"],
-  authors: [{ name: "SkyAI Automation" }],
+  keywords: ["sky ai automation", "ai mentorship", "income streams", "ai tools", "agentic ai", "solopreneur india", "first time founders"],
+  authors: [{ name: "SKY AI Automation" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://soloneur.in",
-    title: "SkyAI Automation — Build AI-powered income streams of your own.",
-    description: "The curriculum, AI tools, and community for India's solo builders, creators, and first-time founders.",
-    siteName: "SkyAI Automation",
+    title: "SKY AI Mentorship Program Build AI-powered income streams of your own.",
+    description: "SKY AI Automation gives you the skills, the AI tools, and the system to start and grow an online business solo, from zero.",
+    siteName: "SKY AI Automation",
   },
 };
 
@@ -44,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" className={`${playfair.variable} ${inter.variable} antialiased scroll-smooth dark`}>
-      <body className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] flex flex-col font-sans selection:bg-[#06b6d4]/30 selection:text-white">
+    <html lang="en-IN" className={`${playfair.variable} ${inter.variable} antialiased scroll-smooth`}>
+      <body className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col font-sans selection:bg-[#D99A19]/25 selection:text-[#161616]">
         {children}
       </body>
     </html>
