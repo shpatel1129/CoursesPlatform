@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     description: "SKY AI Automation gives you the skills, the AI tools, and the system to start and grow an online business solo, from zero.",
     siteName: "SKY AI Automation",
   },
+  icons: {
+    icon: [
+      { url: "/images/logo.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({

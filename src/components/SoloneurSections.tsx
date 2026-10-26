@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { 
   Compass, 
   Users, 
@@ -19,22 +18,30 @@ import {
   ArrowUpRight,
   ChevronDown
 } from "lucide-react";
+import { FadeIn, FadeInScale, TiltCard3D, Magnetic, AnimatedCounter } from "./MotionWrapper";
+import { motion, AnimatePresence } from "motion/react";
 
 export function SoloneurMetricBar() {
   return (
     <section className="border-y border-[#E8CC9D]/50 bg-[#FAF5EB]">
       <div className="max-w-4xl mx-auto py-4 sm:py-6 px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#E8CC9D]/50 text-center tracking-wider uppercase">
-          <div className="w-full sm:w-auto py-1 sm:py-0 px-6 sm:px-8 lg:px-10">
-            <span className="text-xs sm:text-sm font-bold text-[#161616] tracking-wider">60 DAYS</span>
+        <FadeIn delay={0.1} yOffset={10}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#E8CC9D]/50 text-center tracking-wider uppercase">
+            <div className="w-full sm:w-auto py-1 sm:py-0 px-6 sm:px-8 lg:px-10">
+              <span className="text-xs sm:text-sm font-bold text-[#161616] tracking-wider">
+                <AnimatedCounter to={60} suffix=" DAYS" duration={1.8} />
+              </span>
+            </div>
+            <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
+              <span className="text-xs sm:text-sm font-bold text-[#161616] tracking-wider">
+                <AnimatedCounter to={8} suffix=" WEEKS" duration={1.5} />
+              </span>
+            </div>
+            <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
+              <span className="text-xs sm:text-sm font-bold text-[#925B0A] tracking-wider">LIVE GUIDANCE + COMMUNITY</span>
+            </div>
           </div>
-          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
-            <span className="text-xs sm:text-sm font-bold text-[#161616] tracking-wider">8 WEEKS</span>
-          </div>
-          <div className="w-full sm:w-auto pt-2.5 sm:pt-0 sm:py-0 px-6 sm:px-8 lg:px-10">
-            <span className="text-xs sm:text-sm font-bold text-[#925B0A] tracking-wider">LIVE GUIDANCE + COMMUNITY</span>
-          </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -51,41 +58,51 @@ export function SoloneurAboutSection() {
   return (
     <section id="about" className="py-16 sm:py-24 bg-[#FFFCF7] border-t border-[#E8CC9D]/50 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-center text-[#161616]">
-          Why I Started SKY
-        </h2>
+        <FadeIn delay={0.1} yOffset={16}>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-center text-[#161616]">
+            Why I Started SKY
+          </h2>
+        </FadeIn>
  
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center max-w-4xl mx-auto">
           {/* Story */}
           <div className="md:col-span-3 order-2 md:order-1">
-            <div className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-[#555555] leading-relaxed font-light">
-              {story.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
- 
-            <p className="mt-6 sm:mt-8 text-[#925B0A] font-display font-bold text-base sm:text-lg">
-              — Shrikant Yadav
-            </p>
+            <FadeIn delay={0.2} yOffset={20}>
+              <div className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg text-[#555555] leading-relaxed font-light">
+                {story.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+   
+              <p className="mt-6 sm:mt-8 text-[#925B0A] font-display font-bold text-base sm:text-lg">
+                — Shrikant Yadav
+              </p>
+            </FadeIn>
           </div>
  
-          {/* Shrikant Yadav Card */}
+          {/* Shrikant Yadav Card with 3D Tilt and Border Beam */}
           <div className="md:col-span-2 order-1 md:order-2 w-full max-w-xs mx-auto md:max-w-none">
-            <div className="group block rounded-2xl border-2 border-[#E8CC9D] bg-[#FAF5EB] overflow-hidden transition-all hover:border-[#D99A19] hover:shadow-[0_15px_35px_-10px_rgba(217,154,25,0.2)] shadow-md">
-              <div className="aspect-[4/5] overflow-hidden bg-[#FAF5EB] relative">
-                <Image
-                  src="/images/Shikant.PNG"
-                  alt="Shrikant Yadav"
-                  fill
-                  sizes="(min-width: 768px) 320px, 80vw"
-                  className="object-cover group-hover:scale-105 transition-all duration-700"
-                />
-              </div>
-              <div className="p-5 sm:p-6 bg-[#FFFCF7]">
-                <div className="font-display text-xl sm:text-2xl font-bold text-[#161616]">Shrikant Yadav</div>
-                <div className="text-xs sm:text-sm text-[#925B0A] font-medium mt-1">Founder, SKY</div>
-              </div>
-            </div>
+            <FadeInScale delay={0.25}>
+              <TiltCard3D maxTilt={10} scale={1.03} glare={true}>
+                <div 
+                  className="border-beam-container group block rounded-2xl border-2 border-[#E8CC9D] bg-[#FAF5EB] overflow-hidden transition-all hover:border-[#D99A19] hover:shadow-[0_20px_45px_-10px_rgba(217,154,25,0.25)] shadow-md animate-card-glow"
+                >
+                  <div className="aspect-[4/5] overflow-hidden bg-[#FAF5EB] relative">
+                    <Image
+                      src="/images/Shikant.PNG"
+                      alt="Shrikant Yadav"
+                      fill
+                      sizes="(min-width: 768px) 320px, 80vw"
+                      className="object-cover group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="p-5 sm:p-6 bg-[#FFFCF7]">
+                    <div className="font-display text-xl sm:text-2xl font-bold text-[#161616]">Shrikant Yadav</div>
+                    <div className="text-xs sm:text-sm text-[#925B0A] font-medium mt-1">Founder, SKY</div>
+                  </div>
+                </div>
+              </TiltCard3D>
+            </FadeInScale>
           </div>
         </div>
       </div>
@@ -120,22 +137,27 @@ export function SoloneurWhatYouLearnSection() {
   return (
     <section className="py-16 sm:py-24 bg-[#FAF5EB] border-t border-[#E8CC9D]/50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-center max-w-3xl mx-auto leading-tight text-[#161616]">
-          What you&apos;ll learn to do.
-        </h2>
+        <FadeIn delay={0.1} yOffset={16}>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-center max-w-3xl mx-auto leading-tight text-[#161616]">
+            What you&apos;ll learn to do.
+          </h2>
+        </FadeIn>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {pillars.map((item, index) => (
-            <div 
-              key={index} 
-              className="h-full p-5 sm:p-8 rounded-xl border border-[#E8CC9D] bg-[#FFFCF7] shadow-sm hover:border-[#D99A19] hover:shadow-md transition-all"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#FAF5EB] border border-[#E8CC9D] flex items-center justify-center">
-                {item.icon}
-              </div>
-              <h3 className="mt-4 sm:mt-6 font-display text-lg sm:text-xl md:text-2xl font-bold text-[#161616]">{item.title}</h3>
-              <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed font-light">{item.description}</p>
-            </div>
+            <FadeIn key={index} delay={0.15 + index * 0.08} yOffset={20}>
+              <TiltCard3D maxTilt={7} scale={1.02} glare={true} className="h-full">
+                <div 
+                  className="h-full p-5 sm:p-8 rounded-xl border border-[#E8CC9D] bg-[#FFFCF7] shadow-sm hover:border-[#D99A19] hover:shadow-[0_16px_36px_-8px_rgba(217,154,25,0.2)] transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#FAF5EB] border border-[#E8CC9D] flex items-center justify-center mb-1 shadow-sm">
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-4 sm:mt-6 font-display text-lg sm:text-xl md:text-2xl font-bold text-[#161616]">{item.title}</h3>
+                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed font-light">{item.description}</p>
+                </div>
+              </TiltCard3D>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -220,9 +242,10 @@ export function SoloneurToolsSection() {
         {/* Live Tools Grid */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
           {liveTools.map((tool, idx) => (
-            <div 
+            <motion.div 
               key={idx}
-              className="group block overflow-hidden rounded-xl border border-[#E8CC9D] bg-[#FFFCF7] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D99A19] hover:shadow-md"
+              whileHover={{ y: -4 }}
+              className="group block overflow-hidden rounded-xl border border-[#E8CC9D] bg-[#FFFCF7] shadow-sm transition-all duration-300 hover:border-[#D99A19] hover:shadow-md"
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-[#E8CC9D]/60 bg-[#FAF5EB]">
                 <Image 
@@ -251,7 +274,7 @@ export function SoloneurToolsSection() {
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-[#555555] font-light">{tool.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -334,25 +357,35 @@ export function SoloneurCommunitySection() {
   return (
     <section id="community" className="py-16 sm:py-24 bg-[#FFFCF7] border-t border-[#E8CC9D]/50">
       <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#161616] break-words">
-          Solo doesn&apos;t mean <span className="bg-gradient-to-r from-[#925B0A] via-[#D99A19] to-[#F5BD4A] bg-clip-text text-transparent">alone</span>.
-        </h2>
+        <FadeIn delay={0.1} yOffset={16}>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#161616] break-words">
+            Solo doesn&apos;t mean <span className="bg-gradient-to-r from-[#925B0A] via-[#D99A19] to-[#F5BD4A] bg-clip-text text-transparent">alone</span>.
+          </h2>
+        </FadeIn>
 
-        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#555555] leading-relaxed font-light">
-          The hardest part of building something yourself is doing it in silence. Inside SKY AI you&apos;re surrounded by people at every stage — asking questions, sharing wins, and keeping each other moving. The courses teach you. The community keeps you going.
-        </p>
+        <FadeIn delay={0.2} yOffset={16}>
+          <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#555555] leading-relaxed font-light">
+            The hardest part of building something yourself is doing it in silence. Inside SKY AI you&apos;re surrounded by people at every stage — asking questions, sharing wins, and keeping each other moving. The courses teach you. The community keeps you going.
+          </p>
+        </FadeIn>
 
-        <div className="mt-8 sm:mt-10">
-          <a 
-            href="https://chat.whatsapp.com/CvHTLno2Eme1Fs3nuC4vhH" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-md font-semibold border border-[#E8CC9D] text-[#161616] hover:border-[#D99A19] hover:text-[#925B0A] bg-[#FAF5EB] hover:bg-[#FFFCF7] transition-all h-11 px-8 text-sm shadow-sm"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
-            <span>Join the community</span>
-          </a>
-        </div>
+        <FadeIn delay={0.3} yOffset={20}>
+          <div className="mt-8 sm:mt-10 flex justify-center">
+            <Magnetic distance={0.25}>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.96 }}
+                href="https://chat.whatsapp.com/CvHTLno2Eme1Fs3nuC4vhH" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-md font-semibold border border-[#E8CC9D] text-[#161616] hover:border-[#D99A19] hover:text-[#925B0A] bg-[#FAF5EB] hover:bg-[#FFFCF7] transition-all h-11 px-8 text-sm shadow-sm"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] live-ripple-dot animate-pulse flex-shrink-0" />
+                <span>Join the community</span>
+              </motion.a>
+            </Magnetic>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -383,39 +416,54 @@ export function SoloneurFAQSection() {
   return (
     <section id="faq" className="py-16 sm:py-24 bg-[#FAF5EB] border-t border-[#E8CC9D]/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#161616] tracking-tight mb-10 sm:mb-14 text-center break-words">
-          Frequently asked questions.
-        </h2>
+        <FadeIn delay={0.1} yOffset={16}>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#161616] tracking-tight mb-10 sm:mb-14 text-center break-words">
+            Frequently asked questions.
+          </h2>
+        </FadeIn>
 
-        <div className="divide-y divide-[#E8CC9D]/50 border-t border-b border-[#E8CC9D]/50">
-          {soloneurFaqs.map((faq, idx) => {
-            const isOpen = openId === idx;
-            return (
-              <div key={idx} className="group">
-                <button
-                  type="button"
-                  onClick={() => setOpenId(isOpen ? null : idx)}
-                  className="w-full py-4 sm:py-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-left cursor-pointer"
-                  aria-expanded={isOpen}
-                >
-                  <span className={`text-sm sm:text-base md:text-lg font-bold transition-colors break-words ${
-                    isOpen ? "text-[#925B0A]" : "text-[#161616]"
-                  }`}>
-                    {faq.q}
-                  </span>
-                  <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-[#777777] transition-transform duration-200 flex-shrink-0 mt-0.5 sm:mt-0 ${
-                    isOpen ? "rotate-180 text-[#925B0A]" : ""
-                  }`} />
-                </button>
-                {isOpen && (
-                  <div className="pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed font-light animate-fadeIn">
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <FadeIn delay={0.2} yOffset={20}>
+          <div className="divide-y divide-[#E8CC9D]/50 border-t border-b border-[#E8CC9D]/50">
+            {soloneurFaqs.map((faq, idx) => {
+              const isOpen = openId === idx;
+              return (
+                <div key={idx} className="group">
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(isOpen ? null : idx)}
+                    className="w-full py-4 sm:py-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-left cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
+                    <span className={`text-sm sm:text-base md:text-lg font-bold transition-colors break-words ${
+                      isOpen ? "text-[#925B0A]" : "text-[#161616]"
+                    }`}>
+                      {faq.q}
+                    </span>
+                    <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-[#777777] transition-transform duration-300 flex-shrink-0 mt-0.5 sm:mt-0 ${
+                      isOpen ? "rotate-180 text-[#925B0A]" : ""
+                    }`} />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed font-light">
+                          <p>{faq.a}</p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

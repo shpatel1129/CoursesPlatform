@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { FadeIn } from "./MotionWrapper";
+import { motion, AnimatePresence } from "motion/react";
 
 export interface WeekTopic {
   label: string;
@@ -71,7 +73,7 @@ const curriculumWeeks: CurriculumWeek[] = [
     topics: [
       { label: "Topic 1", content: "CLAUDE COWORK" },
       { label: "Topic 2", content: "HOW TO FIND CLIENTS AND CLOSE IT AND MAKE MONEY" },
-      { label: "Topic 3", content: "UGC ADS CREATION, CONTENT & CLIENT DELIVERY" },
+      { label: "Topic 3", content: "UGC ADS — CREATION, CONTENT & CLIENT DELIVERY" },
     ],
   },
   {
@@ -115,74 +117,91 @@ export default function CurriculumTracksSection() {
         
         {/* Section Header */}
         <div className="mb-10 sm:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#161616] text-balance break-words">
-            A curriculum, not a <span className="bg-gradient-to-r from-[#925B0A] via-[#D99A19] to-[#F5BD4A] bg-clip-text text-transparent">content dump</span>.
-          </h2>
+          <FadeIn delay={0.1} yOffset={16}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#161616] text-balance break-words">
+              A curriculum, not a <span className="bg-gradient-to-r from-[#925B0A] via-[#D99A19] to-[#F5BD4A] bg-clip-text text-transparent">content dump</span>.
+            </h2>
+          </FadeIn>
 
-          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg font-semibold text-[#925B0A] tracking-wider uppercase max-w-2xl">
-            60 DAYS | 8 WEEKS | LIVE GUIDANCE + COMMUNITY
-          </p>
+          <FadeIn delay={0.2} yOffset={16}>
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg font-semibold text-[#925B0A] tracking-wider uppercase max-w-2xl">
+              60 DAYS | 8 WEEKS | LIVE GUIDANCE + COMMUNITY
+            </p>
+          </FadeIn>
         </div>
 
         {/* Tracks Accordion List */}
-        <div className="divide-y divide-[#E8CC9D]/50 border-t border-b border-[#E8CC9D]/50">
-          {curriculumWeeks.map((item, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div key={item.week} className="group transition-colors">
-                <button
-                  type="button"
-                  onClick={() => toggleTrack(idx)}
-                  className="w-full py-4 sm:py-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-left cursor-pointer transition-all hover:opacity-90"
-                  aria-expanded={isOpen}
-                >
-                  <div className="flex items-start sm:items-center gap-3 sm:gap-6 min-w-0 flex-1">
-                    {/* Week Label (side me week 1) */}
-                    <span className="font-display text-xs sm:text-sm font-bold tracking-wider text-[#925B0A] flex-shrink-0 w-16 sm:w-20 pt-0.5 sm:pt-0">
-                      {item.week}
-                    </span>
+        <FadeIn delay={0.25} yOffset={20}>
+          <div className="divide-y divide-[#E8CC9D]/50 border-t border-b border-[#E8CC9D]/50">
+            {curriculumWeeks.map((item, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <div key={item.week} className="group transition-colors">
+                  <button
+                    type="button"
+                    onClick={() => toggleTrack(idx)}
+                    className="w-full py-4 sm:py-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-left cursor-pointer transition-all hover:opacity-90"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-start sm:items-center gap-3 sm:gap-6 min-w-0 flex-1">
+                      {/* Week Label (side me week 1) */}
+                      <span className="font-display text-xs sm:text-sm font-bold tracking-wider text-[#925B0A] flex-shrink-0 w-16 sm:w-20 pt-0.5 sm:pt-0">
+                        {item.week}
+                      </span>
 
-                    {/* Title */}
-                    <span className={`font-display text-sm sm:text-lg md:text-xl font-bold tracking-tight transition-colors break-words ${
-                      isOpen ? "text-[#925B0A]" : "text-[#161616] group-hover:text-[#925B0A]"
-                    }`}>
-                      {item.title}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 mt-0.5 sm:mt-0">
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#925B0A]" : "text-[#777777] group-hover:text-[#161616]"
-                      }`}
-                    />
-                  </div>
-                </button>
-
-                {/* Collapsible Details: Topics 1, 2, 3, 4 */}
-                {isOpen && (
-                  <div className="pb-6 sm:pb-8 pt-1 pl-0 sm:pl-20 pr-0 sm:pr-2 space-y-2 sm:space-y-3 animate-fadeIn">
-                    <div className="grid grid-cols-1 gap-2 sm:gap-2.5">
-                      {item.topics.map((t, i) => (
-                        <div
-                          key={i}
-                          className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3 p-3 sm:p-3.5 rounded-xl bg-[#FAF5EB] border border-[#E8CC9D]/70 hover:border-[#D99A19] transition-colors shadow-sm"
-                        >
-                          <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-[#925B0A] flex-shrink-0 sm:w-20">
-                            {t.label} :
-                          </span>
-                          <span className="text-xs sm:text-sm text-[#161616] font-medium leading-relaxed break-words">
-                            {t.content}
-                          </span>
-                        </div>
-                      ))}
+                      {/* Title */}
+                      <span className={`font-display text-sm sm:text-lg md:text-xl font-bold tracking-tight transition-colors break-words ${
+                        isOpen ? "text-[#925B0A]" : "text-[#161616] group-hover:text-[#925B0A]"
+                      }`}>
+                        {item.title}
+                      </span>
                     </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+
+                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 mt-0.5 sm:mt-0">
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          isOpen ? "rotate-180 text-[#925B0A]" : "text-[#777777] group-hover:text-[#161616]"
+                        }`}
+                      />
+                    </div>
+                  </button>
+
+                  {/* Collapsible Details with AnimatePresence */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 sm:pb-8 pt-1 pl-0 sm:pl-20 pr-0 sm:pr-2 space-y-2 sm:space-y-3">
+                          <div className="grid grid-cols-1 gap-2 sm:gap-2.5">
+                            {item.topics.map((t, i) => (
+                              <motion.div
+                                key={i}
+                                whileHover={{ x: 4, transition: { duration: 0.15 } }}
+                                className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3 p-3 sm:p-3.5 rounded-xl bg-[#FAF5EB] border border-[#E8CC9D]/70 hover:border-[#D99A19] transition-colors shadow-sm"
+                              >
+                                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-[#925B0A] flex-shrink-0 sm:w-20">
+                                  {t.label} :
+                                </span>
+                                <span className="text-xs sm:text-sm text-[#161616] font-medium leading-relaxed break-words">
+                                  {t.content}
+                                </span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </FadeIn>
 
       </div>
     </section>

@@ -13,6 +13,7 @@ import {
   SoloneurFAQSection 
 } from "@/components/SoloneurSections";
 import RegisterWebinarSection from "@/components/RegisterWebinarSection";
+import CursorSpotlight from "@/components/CursorSpotlight";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,7 +28,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col selection:bg-[#D99A19]/25 selection:text-[#161616]">
+    <div className="min-h-screen bg-[#FAF5EB] text-[#161616] flex flex-col selection:bg-[#D99A19]/25 selection:text-[#161616] relative">
+      {/* Interactive Cursor Spotlight Glow */}
+      <CursorSpotlight />
+
       {/* 1. Header Navigation */}
       <Header />
 
